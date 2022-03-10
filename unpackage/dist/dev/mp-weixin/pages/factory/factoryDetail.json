@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "工厂详情",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

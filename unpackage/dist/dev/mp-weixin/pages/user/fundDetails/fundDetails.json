@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "钱包明细",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

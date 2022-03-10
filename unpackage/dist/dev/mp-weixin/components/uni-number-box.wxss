@@ -1,0 +1,47 @@
+
+.uni-numbox {
+	position:absolute;
+	right: 0rpx;
+	bottom: -20rpx;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 40rpx;
+}
+.uni-numbox-minus,
+.uni-numbox-plus {
+	margin: 0;
+	background-color: #f5f5f5;
+	width: 40rpx;
+	height: 100%;
+	line-height: 40rpx;
+	text-align: center;
+	position: relative;
+}
+.uni-numbox-minus .yticon,
+.uni-numbox-plus .yticon{
+	font-size: 36rpx;
+	color: #555;
+}
+.uni-numbox-minus {
+	border-right: none;
+	border-top-left-radius: 6rpx;
+	border-bottom-left-radius: 6rpx;
+}
+.uni-numbox-plus {
+	border-left: none;
+	border-top-right-radius: 6rpx;
+	border-bottom-right-radius: 6rpx;
+}
+.uni-numbox-value {
+	position: relative;
+	min-width: 60rpx;
+	max-width: 80rpx;
+	text-align: center;
+	color: #333;
+	font-size: 28rpx;
+}
+.uni-numbox-disabled.yticon {
+	color: #d6d6d6;
+}
+

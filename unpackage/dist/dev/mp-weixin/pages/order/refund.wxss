@@ -1,0 +1,115 @@
+page {
+  background-color: #f5f5f5;
+}
+.formBox {
+  padding-bottom: 160rpx;
+}
+.refundBox {
+  background-color: #fff;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.refundBox .refundType {
+  width: 750rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  background: #ffffff;
+  padding-left: 30rpx;
+  font-size: 28rpx;
+}
+.refundBox .refundType .title {
+  color: #666;
+  margin-right: 40rpx;
+}
+.refundBox .refundType .content {
+  color: #333;
+  width: calc(100% - 160rpx);
+  position: relative;
+}
+.refundBox .refundType .content image {
+  width: 24rpx;
+  height: 24rpx;
+  position: absolute;
+  top: 22rpx;
+  right: 30rpx;
+}
+.refundBox .flexBox {
+  display: flex;
+  align-items: center;
+}
+.refundBox .refundPrice {
+  padding: 20rpx 30rpx;
+}
+.refundBox .refundPrice .content {
+  font-size: 42rpx;
+  margin-top: 20rpx;
+}
+.refundBox .refundReason {
+  padding: 20rpx 30rpx;
+}
+.refundBox .refundReason .content textarea {
+  min-height: 160rpx;
+  margin-top: 20rpx;
+}
+.refundBox .refundReason .refundImgs {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.refundBox .refundReason .refundImgs .uploadImg {
+  border: 2rpx dashed #999999;
+}
+.refundBox .refundReason .refundImgs .applyImg {
+  margin-right: 30rpx;
+  width: 210rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  margin-bottom: 30rpx;
+}
+.refundBox .refundReason .refundImgs .applyImg:nth-child(3n) {
+  margin-right: 0;
+}
+.refundBox .refundReason .refundImgs .applyImg .upload {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  width: 60rpx;
+  height: 60rpx;
+}
+.refundBox .refundReason .refundImgs .applyImg .bgImg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.refundBox .refundReason .refundImgs .applyImg .delImg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40rpx;
+  height: 40rpx;
+  z-index: 1;
+}
+.refundBtn {
+  width: 650rpx;
+  height: 88rpx;
+  background: #ff2d2d;
+  border-radius: 54rpx;
+  line-height: 88rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 40rpx;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: #fff;
+  font-size: 36rpx;
+}
+

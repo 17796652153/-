@@ -1,0 +1,1 @@
+<view><view class="main"><image class="successImg" src="../../../static/success.png"></image><view class="successTxt">提交成功</view></view><view data-event-opts="{{[['tap',[['goBack',['$event']]]]]}}" class="successBtn" bindtap="__e">返回我的</view></view>

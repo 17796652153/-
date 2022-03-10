@@ -1,0 +1,89 @@
+.videoList {
+  padding: 0 30rpx 140rpx;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.videoList .videoItem {
+  width: 230rpx;
+  height: 300rpx;
+  background: #000000;
+  border: 1rpx solid #ffffff;
+  position: relative;
+  background-color: #000;
+}
+.videoList .videoItem .bgvideo {
+  width: 100%;
+  height: 100%;
+}
+.videoList .videoItem .playNum {
+  position: absolute;
+  right: 10rpx;
+  bottom: 10rpx;
+  display: flex;
+  align-items: center;
+}
+.videoList .videoItem .playNum image {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 8rpx;
+}
+.videoList .videoItem .playNum text {
+  color: #fff;
+  font-size: 24rpx;
+}
+.videoBox {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+.videoBox video {
+  width: 100%;
+  height: 100%;
+}
+.videoBox image {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 24rpx;
+  top: 36rpx;
+  z-index: 999;
+}
+.videoHover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.videoHover .playState {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100rpx;
+  height: 100rpx;
+  opacity: 0.85;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+.confirmBtn {
+  position: fixed;
+  z-index: 9;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 40rpx;
+  width: 650rpx;
+  height: 88rpx;
+  opacity: 1;
+  background: #FF2D2D;
+  border-radius: 54rpx;
+  font-size: 36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 88rpx;
+}
+

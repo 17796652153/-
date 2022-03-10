@@ -1,0 +1,61 @@
+
+.headNavigation {
+	width: 750rpx;
+	height: 92rpx;
+	opacity: 1;
+	background: #FFEBEB;
+	display: flex;
+}
+.navItem {
+	width: 50%;
+	text-align: center;
+	line-height: 92rpx;
+	color: #999;
+	font-size: 32rpx;
+	position: relative;
+}
+.activeNav {
+	color: #FF2D2D;
+}
+.activeNav::after {
+	content: "";
+	width: 32rpx;
+	height: 8rpx;
+	opacity: 1;
+	background: #FF2D2D;
+	border-radius: 12rpx;
+	position: absolute;
+	left: 50%;
+	bottom: 8rpx;
+	-webkit-transform: translateX(-50%);
+	        transform: translateX(-50%);
+}
+.historyList {
+	padding: 0 30rpx;
+}
+.historyItem {
+	width: 690rpx;
+	opacity: 1;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20rpx;
+}
+.contentTitle {
+	color: #333;
+	font-size: 28rpx;
+	margin-bottom: 12rpx;
+}
+.contentTime {
+	color: #999;
+	font-size: 24rpx;
+}
+.historyMoney {
+	
+	color: #FF0000;
+	font-size: 28rpx;
+}
+.subMoney {
+	color: #333333;
+}
+

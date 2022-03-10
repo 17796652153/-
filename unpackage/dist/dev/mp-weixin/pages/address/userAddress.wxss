@@ -1,0 +1,117 @@
+
+page{
+  background-color: #F5F5F5;
+}
+.address-container{
+  width: 686rpx;
+  margin: 32rpx;
+  padding-bottom: 190rpx;
+}
+.address-item{
+  width: 686rpx;
+  padding: 16rpx 32rpx 24rpx;
+  margin-bottom: 24rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+}
+.item-address-dedail{
+  width: 450rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-weight: 500;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.item-person{
+  margin: 8rpx 0 30rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  text-align: LEFT;
+  color: #666666;
+}
+.item-operation{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 54rpx;
+  padding-top: 22rpx;
+  border-top: 2rpx solid #E8E8E8;
+}
+.operation-choose{
+  display: flex;
+}
+.choose-txt{
+  font-size: 24rpx;
+  color: #999;
+  line-height: 32rpx;
+}
+.operation-image{
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 8rpx;
+}
+.item-operation-right{
+  display: flex;
+}
+.operation-edit{
+  display: flex;
+  align-items: center;
+  height: 32rpx;
+  margin-right: 24rpx;
+}
+.operation-delete{
+  display: flex;
+  height: 32rpx;
+}
+.edit-txt,.delete-txt{
+  font-size: 24rpx;
+  color: #666666;
+}
+
+/* 添加按钮 */
+.add-btn{
+  position: fixed;
+  left: 127rpx;
+  top: 90%;
+  width: 496rpx;
+  height: 96rpx;
+}
+.add-btn-txt{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 496rpx;
+  height: 96rpx;
+  font-size: 32rpx;
+  line-height: 96rpx;
+  font-weight: 500;
+  text-align: center;
+  color: #f23740;
+}
+.btn{
+  position: fixed;
+  left: 50%;
+  top: 80%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 650rpx;
+  height: 88rpx;
+  opacity: 1;
+  background: #FF2D2D;
+  border-radius: 54rpx;
+  text-align: center;
+  line-height: 88rpx;
+  font-size: 34rpx;
+  color: #fff;
+  margin: 80rpx auto;
+}
+
+/* end添加按钮 */
+

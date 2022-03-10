@@ -1,0 +1,136 @@
+page {
+  background-color: #f5f5f5;
+}
+.seckillImg {
+  width: 100%;
+  height: 352rpx;
+}
+.headerNav {
+  width: 750rpx;
+  height: 72rpx;
+  position: relative;
+  overflow: hidden;
+  background-color: #FF4D4D;
+}
+.headerNav .scrollView {
+  width: 750rpx;
+  height: 72rpx;
+  display: flex;
+  padding-right: 72rpx;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.headerNav .scrollView .scrollViewBox {
+  display: flex;
+  align-items: center;
+}
+.headerNav .scrollView view {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.headerNav .scrollView .headerNavItem {
+  font-size: 24rpx;
+  display: inline-block;
+  background-color: #FF2D2D;
+  color: #fff;
+  max-height: 40rpx;
+  margin-right: 12rpx;
+  padding: 0 16rpx;
+  border-radius: 8rpx;
+}
+.headerNav .scrollView .headerNavItem text {
+  border-radius: 8px;
+  display: inline-block;
+}
+.headerNav .scrollView .headerNavItem:first-child {
+  margin-left: 30rpx;
+}
+.headerNav .scrollView .activeHeadItem {
+  color: #FF2D2D;
+  background-color: #fff;
+}
+.headerNav .scrollView .activeHeadItem text {
+  position: relative;
+}
+.headerNav .headerNavImg {
+  width: 60rpx;
+  height: 72rpx;
+  background: #FF4C4C;
+  box-shadow: 2rpx 0rpx 12rpx 4rpx rgba(0, 0, 0, 0.41);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.headerNav .headerNavImg image {
+  width: 28rpx;
+  height: 28rpx;
+}
+.clearanceMain {
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.clearanceMain .goodsMain {
+  width: 340rpx;
+  height: 396rpx;
+  background: #ffffff;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+}
+.clearanceMain .goodsMain:nth-child(2n) {
+  margin-right: 0;
+}
+.clearanceMain .goodsMain .goodsImg {
+  width: 340rpx;
+  height: 240rpx;
+}
+.clearanceMain .goodsMain .goodsContent {
+  padding: 20rpx;
+}
+.clearanceMain .goodsMain .goodsContent .goodsName {
+  font-size: 24rpx;
+  color: #333;
+  max-width: 250rpx;
+  margin-bottom: 14rpx;
+}
+.clearanceMain .goodsMain .goodsContent .advantage {
+  display: flex;
+  align-items: center;
+  font-size: 20rpx;
+}
+.clearanceMain .goodsMain .goodsContent .advantage .discount {
+  height: 28rpx;
+  padding: 0 8rpx;
+  line-height: 28rpx;
+  text-align: center;
+  color: #ff2d2d;
+  border: 1rpx solid #ff2d2d;
+  border-radius: 8rpx;
+  margin-right: 12rpx;
+}
+.clearanceMain .goodsMain .goodsContent .advantage .size {
+  width: 56rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(63deg, #e5c177 0%, #e3c6a6 0%, #d19d52 100%);
+  border-radius: 8rpx;
+}
+.clearanceMain .goodsMain .goodsContent .goodsPrice {
+  font-size: 20rpx;
+  color: #FF2D2D;
+}
+.clearanceMain .goodsMain .goodsContent .goodsPrice .priceTxt {
+  font-size: 28rpx;
+}
+.clearanceMain .goodsMain .goodsContent .goodsPrice .price {
+  font-size: 32rpx;
+}
+

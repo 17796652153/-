@@ -1,0 +1,122 @@
+.infoDetails {
+  padding: 20rpx 30rpx;
+  padding-bottom: calc(98rpx + env(safe-area-inset-bottom));
+}
+.infoDetails .infoImgs {
+  width: 690rpx;
+  height: 690rpx;
+  overflow: hidden;
+  border-radius: 20rpx;
+}
+.infoDetails .infoImgs swiper-item {
+  width: 100%;
+  height: 100%;
+}
+.infoDetails .infoImgs swiper-item .swiper-item {
+  width: 100%;
+  height: 100%;
+}
+.infoDetails .detailsContent {
+  padding: 40rpx 20rpx;
+}
+.infoDetails .detailsContent .userInfo {
+  display: flex;
+  align-items: center;
+}
+.infoDetails .detailsContent .userInfo .userImg {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.infoDetails .detailsContent .userInfo .userName {
+  font-size: 36rpx;
+  color: #333;
+}
+.infoDetails .detailsContent .introduce {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 32rpx;
+  margin: 20rpx 0 40rpx;
+}
+.infoDetails .detailsContent .baseInfoIcon {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.infoDetails .detailsContent .baseInfoIcon .icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+  padding-top: 6rpx;
+  flex-shrink: 0;
+}
+.infoDetails .detailsContent .baseInfoIcon text {
+  font-size: 24rpx;
+  color: #999;
+}
+.infoDetails .detailsContent .addressIcon {
+  justify-content: space-between;
+}
+.infoDetails .detailsContent .addressIcon .shopIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.infoDetails .detailsContent .addressIcon .shopIcon image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.infoDetails .detailsContent .addressIcon .shopIcon text {
+  color: #333;
+  font-size: 20rpx;
+  margin-top: 8rpx;
+}
+.bottomOperation {
+  width: 750rpx;
+  height: 98rpx;
+  background: #ffffff;
+  box-shadow: 0rpx 0rpx 8rpx 2rpx rgba(0, 0, 0, 0.25);
+  padding: 6rpx 30rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: calc(98rpx + env(safe-area-inset-bottom));
+  align-items: flex-start;
+}
+.bottomOperation .operationIcon {
+  display: flex;
+  align-items: center;
+}
+.bottomOperation .operationIcon .operationIconItem {
+  margin-right: 64rpx;
+  padding: 6rpx 0;
+  text-align: center;
+  position: relative;
+}
+.bottomOperation .operationIcon .operationIconItem image {
+  width: 48rpx;
+  height: 48rpx;
+}
+.bottomOperation .operationIcon .operationIconItem .txt {
+  font-size: 24rpx;
+  color: #333;
+}
+.bottomOperation .operationIcon .operationIconItem button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 94rpx;
+  opacity: 0;
+}
+.bottomOperation .operationBtn {
+  width: 172rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+  background: #ff2d2d;
+  margin-top: 14rpx;
+}
+

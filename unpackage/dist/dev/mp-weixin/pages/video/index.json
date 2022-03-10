@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "电商",
+  "backgroundColorBottom": "#000",
+  "usingComponents": {
+    "lu-popup-wrapper": "/components/lu-popup-wrapper/lu-popup-wrapper"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "产地工厂",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

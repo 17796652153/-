@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "求购信息",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "header-search": "/components/headerSearch/headerSearch"
+  }
+}

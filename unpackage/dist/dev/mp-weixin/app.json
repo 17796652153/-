@@ -1,0 +1,107 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/video/index",
+        "pages/car/car",
+        "pages/user/user",
+        "pages/user/information/information",
+        "pages/user/myFollow/myFollow",
+        "pages/shopFollow/shopFollow",
+        "pages/coupon/coupon",
+        "pages/coupon/receive",
+        "pages/user/myCollection/myCollection",
+        "pages/user/myBrowse/myBrowse",
+        "pages/user/withdrawal/withdrawal",
+        "pages/user/withdrawal/withdrawalOk",
+        "pages/user/fundDetails/fundDetails",
+        "pages/myApply/myApply",
+        "pages/order/orderList",
+        "pages/order/refund",
+        "pages/order/reasonReject",
+        "pages/myInvitation/myInvitation",
+        "pages/applyCoupon/applyCoupon",
+        "pages/applyCoupon/applyAgent",
+        "pages/myInvitation/QRCode",
+        "pages/selfTakeOrder/selfTakeOrder",
+        "pages/selfTakeOrder/pickUpCode",
+        "pages/merchant/merchant",
+        "pages/merchant/merchantOrder",
+        "pages/wantBuy/myWantBuy",
+        "pages/infoServer/myInfoServer",
+        "pages/infoServer/infoServerDetail",
+        "pages/wantBuy/wantBuyDetail",
+        "pages/wantBuy/repairWantBuy",
+        "pages/infoServer/repairServer",
+        "pages/user/openMember/openMember",
+        "pages/address/userAddress",
+        "pages/address/addAddress",
+        "pages/seckill/seckill",
+        "pages/clearance/clearance",
+        "pages/infoServer/infoServerHall",
+        "pages/wantBuy/wantBuyHall",
+        "pages/factory/factory",
+        "pages/factory/factoryDetail",
+        "pages/merchant/merchantSettled",
+        "pages/search/search",
+        "pages/search/searchGoods",
+        "pages/goods/details",
+        "pages/shophome/shophome",
+        "pages/confirmOrder/confirmOrder",
+        "pages/user/myVedio/myVedio",
+        "pages/user/myVedio/repairVedio",
+        "pages/user/myVedio/selectVideoGoods",
+        "pages/index/selCity",
+        "pages/confirmOrder/orderOk",
+        "pages/login/login",
+        "pages/order/deliveryMap",
+        "pages/order/goods-detail",
+        "pages/merchant/withdrawalLIst",
+        "pages/agreement/agreement"
+    ],
+    "subPackages": [],
+    "window": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "uni-app",
+        "navigationBarBackgroundColor": "#FF2D2D",
+        "backgroundColor": "#F8F8F8"
+    },
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#333333",
+        "borderStyle": "black",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "static/root_home2.png",
+                "selectedIconPath": "static/root_home.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/video/index",
+                "iconPath": "static/root_video2.png",
+                "selectedIconPath": "static/root_video.png",
+                "text": "短视频"
+            },
+            {
+                "pagePath": "pages/car/car",
+                "iconPath": "static/root_car2.png",
+                "selectedIconPath": "static/root_car.png",
+                "text": "购物车"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "iconPath": "static/root_user2.png",
+                "selectedIconPath": "static/root_user.png",
+                "text": "我的"
+            }
+        ]
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "获取用户当前位置"
+        }
+    },
+    "usingComponents": {},
+    "sitemapLocation": "sitemap.json"
+}

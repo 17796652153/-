@@ -1,0 +1,168 @@
+
+page {
+	background: #fff;
+	width: 100%;
+	overflow-x:hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*每个页面公共css */
+view {
+	box-sizing: border-box;
+}
+view,
+text {
+	font-family: PingFang SC;
+}
+image {
+	display: inline-block;
+}
+.pic {
+	width: 100%;
+	height: 100%;
+}
+.baseflex {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.multiHide {
+	/* 多行隐藏 显示省略号 默认两行,可覆盖, 需设置宽高 */
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.singleHide {
+	/* 单行文本溢出隐藏, 需设置宽 高 */
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.goodsNull{
+	color: #999;
+	text-align: center;
+	margin: 40rpx auto;
+}
+

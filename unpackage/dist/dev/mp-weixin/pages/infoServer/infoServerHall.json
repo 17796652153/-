@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "信息服务",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "header-search": "/components/headerSearch/headerSearch"
+  }
+}

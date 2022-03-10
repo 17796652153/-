@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "领券中心",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

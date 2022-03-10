@@ -1,0 +1,205 @@
+.root {
+  padding: 20rpx 30rpx;
+}
+.shop {
+  align-items: flex-start;
+}
+.shop .shopInfo {
+  display: flex;
+  align-items: center;
+}
+.shop .shopInfo .shopLogo {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.shop .shopInfo .shopContent .shopName {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+.shop .shopInfo .shopContent .shopSpec {
+  font-size: 24rpx;
+  color: #666;
+  margin-right: 40rpx;
+}
+.shop .shopInfo .shopContent .shopSpec:last-child {
+  margin-right: 0;
+}
+.shop .shopOperation {
+  display: flex;
+  align-items: center;
+}
+.shop .shopOperation .star {
+  margin-right: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.shop .shopOperation .star .starImg {
+  width: 36rpx;
+  height: 36rpx;
+}
+.shop .shopOperation .share {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.shop .shopOperation .share .shareImg {
+  width: 40rpx;
+  height: 40rpx;
+}
+.shop .shopOperation .share button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 94rpx;
+  width: 70rpx;
+  padding: 0;
+  opacity: 0;
+}
+.shop .shopOperation text {
+  color: #333;
+  font-size: 20rpx;
+}
+.shopAddr {
+  align-items: flex-start;
+  margin-bottom: 40rpx;
+  margin: 20rpx 0 40rpx;
+}
+.shopAddr .shopAddressTxt {
+  font-size: 28rpx;
+  color: #333;
+  max-height: 80rpx;
+  max-width: 482rpx;
+}
+.shopAddr .shopOptions {
+  display: flex;
+  align-items: center;
+}
+.shopAddr .shopOptions .shopIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20rpx;
+}
+.shopAddr .shopOptions .shopIcon image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.shopAddr .shopOptions .shopIcon text {
+  color: #333;
+  font-size: 26rpx;
+  margin-top: 8rpx;
+}
+.swiperView {
+  width: 690rpx;
+  height: 324rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.swiperView swiper-item {
+  width: 100%;
+  height: 100%;
+}
+.swiperView swiper-item .swiper-item {
+  width: 100%;
+  height: 100%;
+}
+.screen {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.screen .screenItem {
+  width: 25%;
+  height: 68rpx;
+  text-align: center;
+  line-height: 68rpx;
+  font-size: 36rpx;
+  color: #999;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.screen .screenItem .activeScreen {
+  color: #FF2D2D;
+}
+.screen .screenItem .activeScreen::after {
+  content: "";
+  position: absolute;
+  bottom: 4rpx;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 40rpx;
+  height: 4rpx;
+  background: #ff2d2d;
+  border-radius: 2rpx;
+}
+.goodsList .goodsItem {
+  padding-bottom: 40rpx;
+  display: flex;
+  align-items: center;
+}
+.goodsList .goodsItem .goodsImg {
+  width: 240rpx;
+  height: 240rpx;
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.goodsList .goodsItem .goodsMain .goodsName {
+  font-size: 32rpx;
+  color: #333;
+  max-width: 320rpx;
+}
+.goodsList .goodsItem .goodsMain .goodsTitle {
+  height: 60rpx;
+  max-width: 400rpx;
+  color: #999;
+  font-size: 24rpx;
+  margin: 20rpx 0 48rpx;
+}
+.goodsList .goodsItem .goodsMain .originalPrice {
+  font-size: 20rpx;
+  color: #666;
+}
+.goodsList .goodsItem .goodsMain .presentPrice {
+  font-size: 20rpx;
+  color: #333;
+}
+.goodsList .goodsItem .goodsMain .presentPrice text {
+  font-size: 32rpx;
+  color: #FF4747;
+}
+.triangleBox {
+  position: absolute;
+  right: 16rpx;
+  top: 8rpx;
+}
+.triangle {
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12rpx;
+}
+.triangleTop {
+  border-color: transparent transparent #bdbdbd transparent;
+}
+.triangleBtm {
+  margin-top: 10rpx;
+  border-color: #bdbdbd transparent transparent transparent;
+}
+.activePriceDesc {
+  border-color: #ff461e transparent transparent transparent;
+}
+.activePriceAsc {
+  border-color: transparent transparent #ff461e transparent;
+}
+

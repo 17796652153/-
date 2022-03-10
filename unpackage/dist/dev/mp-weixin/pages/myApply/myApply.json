@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我的申请",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "show-model": "/components/showModel/showModel"
+  }
+}

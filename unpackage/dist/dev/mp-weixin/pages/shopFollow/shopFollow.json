@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "店铺关注",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

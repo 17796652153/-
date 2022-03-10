@@ -1,0 +1,578 @@
+.videoHover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.videoHover .playState {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100rpx;
+  height: 100rpx;
+  opacity: 0.85;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+.topSearch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20rpx 30rpx;
+}
+.topSearch .searchContent {
+  width: 690rpx;
+  height: 64rpx;
+  border: 2rpx solid #ffffff;
+  border-radius: 34rpx;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.topSearch .searchContent image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+  vertical-align: middle;
+}
+.topSearch .searchContent input {
+  height: 100%;
+  font-size: 28rpx;
+  color: #fff;
+  width: 576rpx;
+  padding-left: 20rpx;
+}
+.topTabs {
+  position: absolute;
+  top: 104rpx;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20rpx 30rpx;
+}
+.topTabs .tabsItem {
+  color: #fff;
+  font-size: 36rpx;
+  width: 50%;
+  height: 66rpx;
+  text-align: center;
+}
+.topTabs .activeItem {
+  position: relative;
+}
+.topTabs .activeItem::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 48rpx;
+  height: 4rpx;
+  background: #ffffff;
+  border-radius: 2rpx;
+}
+.userInfo {
+  position: absolute;
+  right: 10rpx;
+  bottom: 120rpx;
+  display: flex;
+  flex-direction: column;
+  z-index: 9;
+}
+.userInfo .userHead {
+  position: relative;
+  margin-bottom: 50rpx;
+  border-radius: 50%;
+}
+.userInfo .userHead .headPic {
+  width: 80rpx;
+  height: 80rpx;
+  border: 2rpx solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.userInfo .userHead .userFollow {
+  position: absolute;
+  left: 50%;
+  bottom: -14rpx;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 28rpx;
+  height: 28rpx;
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30rpx;
+}
+.flexColumn image {
+  width: 52rpx;
+  height: 52rpx;
+  margin-bottom: 10rpx;
+}
+.flexColumn text {
+  color: #fff;
+  font-size: 20rpx;
+}
+.content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  padding: 40rpx 30rpx;
+}
+.content .vedioGoods {
+  position: relative;
+  height: 36rpx;
+  display: inline-block;
+  padding-right: 10rpx;
+  line-height: 36rpx;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+.content .vedioGoods image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 8rpx;
+}
+.content .vedioGoods text {
+  font-size: 20rpx;
+  color: #fff;
+  vertical-align: super;
+}
+.content .vedioGoods .line {
+  display: inline-block;
+  width: 2rpx;
+  height: 12rpx;
+  background: #e5e5e5;
+  margin: 0 8rpx;
+}
+.content .myFollow {
+  width: 124rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 10rpx;
+  color: #333;
+  font-size: 24rpx;
+  margin-bottom: 20rpx;
+}
+.content .userName {
+  font-size: 28rpx;
+  max-width: 300rpx;
+  margin-bottom: 20rpx;
+}
+.content .words {
+  font-size: 24rpx;
+  max-width: 580rpx;
+  max-height: 130rpx;
+  -webkit-line-clamp: 4;
+}
+.videoNull {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  position: relative;
+}
+.videoNull .followNull {
+  margin: 0 auto;
+  padding-top: 300rpx;
+}
+.videoNull .followNull .nullImg {
+  width: 480rpx;
+  height: 480rpx;
+  margin: 0 auto 20rpx;
+}
+.videoNull .followNull .nullText {
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  margin: 0 auto;
+}
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+}
+.bottmPopup {
+  background: #ffffff;
+  border-radius: 20rpx 20rpx 0rpx 0rpx;
+  overflow: hidden;
+  box-sizing: initial;
+}
+.shareBox {
+  width: calc(100% - 60rpx);
+  padding: 50rpx 30rpx 20rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  position: relative;
+}
+.shareBox .close {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+.shareList {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.shareList .shareItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 60rpx;
+  position: relative;
+}
+.shareList .shareItem image {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 12rpx;
+}
+.shareList .shareItem text {
+  color: #333;
+  font-size: 32rpx;
+}
+.shareList .shareItem button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 134rpx;
+  opacity: 0;
+}
+.vedioGoodsBox {
+  width: 100%;
+  position: relative;
+}
+.vedioGoodsBox .goodsImg {
+  height: 748rpx;
+  width: 100%;
+}
+.vedioGoodsBox .goodsInfo {
+  padding: 20rpx 30rpx 38rpx;
+}
+.vedioGoodsBox .goodsInfo .goodsName {
+  color: #333;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+.vedioGoodsBox .goodsInfo .goodsName text {
+  display: inline-block;
+  max-width: 584rpx;
+}
+.vedioGoodsBox .goodsInfo .goodsName image {
+  width: 24rpx;
+  height: 24rpx;
+}
+.vedioGoodsBox .goodsInfo .goodsEnsure {
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+}
+.vedioGoodsBox .goodsInfo .goodsEnsure .goodsTitle {
+  color: #333;
+  margin-right: 20rpx;
+}
+.vedioGoodsBox .goodsInfo .goodsEnsure .goodsContent {
+  color: #999;
+  max-width: 500rpx;
+}
+.vedioGoodsBox .goodsOperation {
+  padding: 20rpx 30rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  border-top: 2rpx solid #E5E5E5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.vedioGoodsBox .goodsOperation .operationItem {
+  width: 330rpx;
+  height: 68rpx;
+  background: #ffc7c7;
+  border-radius: 10rpx;
+  color: #FF2D2D;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 68rpx;
+}
+.vedioGoodsBox .goodsOperation .nowBuy {
+  color: #fff;
+  background-color: #FF2D2D;
+}
+.vedioGoodsBox .close {
+  position: absolute;
+  left: 30rpx;
+  top: 28rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.specsExplain {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 20rpx 20rpx 0rpx 0rpx;
+  padding: 40rpx 30rpx 20rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+  position: relative;
+}
+.specsExplain .specGoodsInfo {
+  display: flex;
+  align-items: center;
+}
+.specsExplain .specGoodsInfo .specGoodsImg {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+.specsExplain .specGoodsInfo .specGoodsContent {
+  flex-shrink: 0;
+  max-width: 400rpx;
+}
+.specsExplain .specGoodsInfo .specGoodsName {
+  color: #333;
+  font-size: 32rpx;
+}
+.specsExplain .specGoodsInfo .specGoodsPrice {
+  color: #FF2D2D;
+  font-size: 28rpx;
+  margin: 14rpx 0;
+}
+.specsExplain .specGoodsInfo .specGoodsPrice text {
+  font-size: 42rpx;
+  margin: 0 4rpx;
+}
+.specsExplain .specGoodsInfo .specGoodsSpecs {
+  color: #999;
+  font-size: 28rpx;
+  height: 76rpx;
+}
+.specsExplain .goodsSpecAll {
+  margin-top: 40rpx;
+}
+.specsExplain .goodsSpecAll .specTitle {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+.specsExplain .goodsSpecAll .selGoodsSpec {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.specsExplain .goodsSpecAll .selGoodsSpec .goodsSpecItem {
+  background: #e5e5e5;
+  border-radius: 6rpx;
+  padding: 12rpx;
+  font-size: 28rpx;
+  color: #666;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+.specsExplain .goodsSpecAll .selGoodsSpec .activeSpecs {
+  color: #fff;
+  background-color: #FF2D2D;
+}
+.specsExplain .buyGoodsNum {
+  margin: 50rpx 0 40rpx;
+}
+.specsExplain .buyGoodsNum .changeNum {
+  display: flex;
+  align-items: center;
+}
+.specsExplain .buyGoodsNum .numBtn {
+  width: 40rpx;
+  height: 40rpx;
+  background: #f2f2f2;
+  border-radius: 4rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  line-height: 40rpx;
+  text-align: center;
+}
+.specsExplain .buyGoodsNum input {
+  height: 40rpx;
+  max-width: 84rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+}
+.specsExplain .buyOperation {
+  width: 690rpx;
+  height: 72rpx;
+  background: #ff2d2d;
+  border-radius: 10rpx;
+  line-height: 72rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+}
+.specsExplain .close {
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.comment {
+  width: 100%;
+  height: 900rpx;
+  padding-top: 20rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  position: relative;
+}
+.comment .commentTitle {
+  color: #333333;
+  font-size: 24rpx;
+  text-align: center;
+}
+.comment .commentMain {
+  padding: 20rpx 30rpx;
+  width: calc(100% - 60rpx);
+  margin: 40rpx auto;
+}
+.comment .commentMain .commentContent {
+  margin-bottom: 40rpx;
+}
+.comment .commentMain .commentUser {
+  display: flex;
+}
+.comment .commentMain .commentUser .commentUserHead {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.comment .commentMain .commentUser .commentUserInfo {
+  max-width: 480rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+.comment .commentMain .commentUser .commentUserInfo .commentUserName {
+  color: #666;
+}
+.comment .commentMain .commentUser .commentUserInfo .commentUserName text {
+  display: inline-block;
+  font-size: 16rpx;
+  width: 44rpx;
+  height: 20rpx;
+  line-height: 20rpx;
+  text-align: center;
+  background: #ff2d2d;
+  border-radius: 4rpx;
+  margin-left: 10rpx;
+  color: #fff;
+}
+.comment .commentMain .commentUser .commentUserInfo .commentUserContent {
+  max-width: 480rpx;
+  margin: 16rpx 0;
+}
+.comment .commentMain .commentUser .commentUserInfo .commentTime {
+  color: #999;
+  margin-bottom: 16rpx;
+}
+.comment .commentMain .commentUser .commentUserInfo .commentTime text {
+  color: #666;
+  margin-left: 20rpx;
+}
+.comment .commentMain .commentUser .commentUserInfo .commentMore {
+  color: #666;
+}
+.comment .commentMain .commentUser .commentUserInfo .commentMore text {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 12rpx;
+  border-width: 10rpx;
+  border-color: #999999 transparent transparent transparent;
+  border-style: solid;
+  vertical-align: bottom;
+}
+.comment .commentMain .commentUser .commentUserInfo .reply {
+  overflow: hidden;
+}
+.comment .commentMain .commentUser .commentUserInfo .replyUser {
+  display: flex;
+}
+.comment .commentMain .commentUser .commentUserInfo .replyUser .replyUserHead {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 10rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.comment .commentMain .commentUser .commentUserInfo .replyUser .replyUserName {
+  color: #666;
+  font-size: 20rpx;
+}
+.comment .commentMain .commentUser .commentUserInfo .replyUser .replyUserName text {
+  display: inline-block;
+  font-size: 16rpx;
+  width: 44rpx;
+  height: 20rpx;
+  line-height: 20rpx;
+  text-align: center;
+  background: #ff2d2d;
+  border-radius: 4rpx;
+  margin-left: 10rpx;
+  color: #fff;
+}
+.comment .commentMain .commentUser .commentUserInfo .replyUser .replyUserName image {
+  width: 16rpx;
+  height: 16rpx;
+  margin: 0 8rpx;
+  vertical-align: middle;
+}
+.comment .nullComment {
+  text-align: center;
+  font-size: 24rpx;
+  color: #333;
+  margin-bottom: 170rpx;
+}
+.comment .commentInput {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 2rpx solid #E5E5E5;
+  padding: 16rpx 30rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  background-color: #fff;
+}
+.comment .commentInput input {
+  width: 100%;
+  height: 52rpx;
+  font-size: 28rpx;
+  color: #000;
+  padding: 0 20rpx;
+  background-color: #E5E5E5;
+  box-sizing: border-box;
+  border-radius: 26px;
+}
+.comment .close {
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+

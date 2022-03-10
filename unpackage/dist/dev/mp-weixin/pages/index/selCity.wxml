@@ -1,0 +1,1 @@
+<view><t-index-address bind:select="__e" vue-id="27b417e7-1" data-event-opts="{{[['^select',[['select']]]]}}" bind:__l="__l"></t-index-address></view>

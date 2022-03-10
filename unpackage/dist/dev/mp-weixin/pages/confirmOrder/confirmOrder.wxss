@@ -1,0 +1,259 @@
+page {
+  background-color: #F5F5F5;
+}
+.confrimMain {
+  padding: 40rpx 30rpx 160rpx;
+}
+.confrimMain .address {
+  width: 690rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding: 30rpx 20rpx;
+}
+.confrimMain .address .addressIcon {
+  width: 68rpx;
+  height: 68rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+.confrimMain .address .addressContent {
+  color: #333;
+  font-size: 28rpx;
+  margin-right: 90rpx;
+  width: 450rpx;
+}
+.confrimMain .address .addressContent .userInfo {
+  display: flex;
+  align-items: flex-end;
+}
+.confrimMain .address .addressContent .userInfo .userName {
+  font-size: 36rpx;
+  color: #333;
+}
+.confrimMain .address .addressContent .userInfo .userPhone {
+  color: #999;
+  font-size: 32rpx;
+  margin-left: 12rpx;
+}
+.confrimMain .address .addressContent .userAddr {
+  font-size: 28rpx;
+  color: #333;
+  height: 70rpx;
+  width: 450rpx;
+}
+.confrimMain .address .selAddr {
+  width: 38rpx;
+  height: 38rpx;
+  flex-shrink: 0;
+}
+.goodsOrder {
+  width: 690rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  margin-bottom: 40rpx;
+}
+.goodsOrder .goodsOrderMain {
+  padding: 20rpx;
+}
+.goodsOrder .goodsOrderMain .goods {
+  display: flex;
+  margin-bottom: 46rpx;
+}
+.goodsOrder .goodsOrderMain .goods .goodsImg {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+.goodsOrder .goodsOrderMain .goods .goodsContent .goodsContentTitle {
+  display: flex;
+  justify-content: space-between;
+}
+.goodsOrder .goodsOrderMain .goods .goodsContent .goodsContentTitle .goodsName {
+  color: #333;
+  font-size: 28rpx;
+  height: 70rpx;
+  width: 350rpx;
+}
+.goodsOrder .goodsOrderMain .goods .goodsContent .goodsContentTitle .goodsPrice {
+  color: #666;
+  font-size: 28rpx;
+}
+.goodsOrder .goodsOrderMain .goods .goodsContent .goodsSpec {
+  background: #f5f5f5;
+  border-radius: 4rpx;
+  padding: 8rpx 12rpx;
+  margin-top: 20rpx;
+}
+.goodsOrder .goodsOrderMain .goods .goodsContent .goodsSpec text {
+  color: #999;
+  font-size: 28rpx;
+  margin-right: 20rpx;
+}
+.goodsOrder .goodsOrderMain .goods .goodsContent .goodsSpec text:last-child {
+  margin-right: 0;
+}
+.goodsOrder .goodsOrderMain .goodsOrderItem {
+  font-size: 28rpx;
+  margin-bottom: 36rpx;
+}
+.goodsOrder .goodsOrderMain .goodsOrderItem .goodsOrderInfoTitle {
+  color: #333;
+}
+.goodsOrder .goodsOrderMain .goodsOrderItem .goodsOrderInfoTitle text {
+  color: #999;
+  margin-left: 20rpx;
+  vertical-align: middle;
+}
+.goodsOrder .goodsOrderMain .goodsOrderItem .goodsOrderInfoTitle image {
+  vertical-align: middle;
+}
+.goodsOrder .goodsOrderMain .goodsOrderItem .goodsOrderInfoTitle .downArrow {
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 10rpx;
+}
+.goodsOrder .goodsOrderMain .goodsOrderItem .goodsOrderInfoTitle .couponImg {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 16rpx;
+}
+.goodsOrder .goodsOrderMain .goodsOrderItem .goodsOrderInfoTitle .moreImg {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 16rpx;
+}
+.goodsOrder .goodsOrderMain .goodsOrderItem .goodsOrderInfoTitle .textareaBox {
+  width: 650rpx;
+  box-sizing: border-box;
+  min-height: 120rpx;
+  background: #f5f5f5;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin-top: 20rpx;
+}
+.goodsOrder .goodsOrderMain .goodsOrderItem .goodsOrderInfoTitle textarea {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 80rpx;
+  background: #f5f5f5;
+}
+.goodsOrder .goodsOrderMain .goodsOrderItem .goodsOrderInfoContent {
+  color: #333;
+}
+.goodsOrder .goodsOrderMain .goodsOrderItem .sistribution {
+  color: #999;
+}
+.goodsOrder .goodsOrderMain .goodsOrderItem .coupon {
+  color: #FF4646;
+}
+.goodsOrder .goodsOrderSubtotal {
+  padding: 20rpx;
+  text-align: right;
+  color: #333;
+  font-size: 28rpx;
+  border-top: 2rpx solid #E5E5E5;
+}
+.goodsOrder .goodsOrderSubtotal text {
+  color: #FF2D2D;
+}
+.goodsOrder .goodsOrderSubtotal .priceSubtotal {
+  margin-left: 10rpx;
+}
+.bottomOperation {
+  width: 750rpx;
+  height: 98rpx;
+  background: #ffffff;
+  box-shadow: 0rpx 0rpx 8rpx 2rpx rgba(0, 0, 0, 0.25);
+  padding: 20rpx 30rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  height: calc(98rpx + env(safe-area-inset-bottom));
+  justify-content: space-between;
+}
+.bottomOperation .payMoney {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 12rpx;
+}
+.bottomOperation .payMoney text {
+  color: #FF2D2D;
+  margin-left: 10rpx;
+}
+.bottomOperation .payMoney .price {
+  font-size: 32rpx;
+  margin-left: 0;
+}
+.bottomOperation .payBtn {
+  width: 180rpx;
+  height: 64rpx;
+  background: #ff4646;
+  border-radius: 32rpx;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 64rpx;
+  margin-left: 40rpx;
+}
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+.deliveryMain {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 750rpx;
+  height: 406rpx;
+  background: #ffffff;
+  border-radius: 20rpx 20rpx 0rpx 0rpx;
+  z-index: 9999;
+  padding: 0 30rpx;
+}
+.deliveryMain .deliveryTitle {
+  font-size: 36rpx;
+  color: #333;
+  margin: 30rpx 0 40rpx;
+  text-align: center;
+}
+.deliveryMain .deliveryItem {
+  width: 690rpx;
+  height: 116rpx;
+  background: #ffffff;
+  box-shadow: 0rpx 0rpx 12rpx 0rpx rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28rpx;
+}
+.deliveryMain .deliveryItem image {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+.deliveryMain .deliveryItem text {
+  color: #333;
+  font-size: 36rpx;
+}
+.deliveryMain .deliveryItem:last-child {
+  margin-bottom: 0;
+}
+.deliveryMain .close {
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+

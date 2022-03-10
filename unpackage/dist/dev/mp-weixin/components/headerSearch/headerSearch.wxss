@@ -1,0 +1,67 @@
+.header {
+  width: 100%;
+  height: 104rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+}
+.header .address {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+.header .address image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.header .address text {
+  font-size: 20rpx;
+  color: #FF2D2D;
+  max-width: 80rpx;
+}
+.header .search {
+  width: 100%;
+  height: 64rpx;
+  background: #ffffff;
+  border: 2rpx solid #ff2d2d;
+  border-radius: 34rpx;
+  display: flex;
+  align-items: center;
+}
+.header .search image {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 20rpx;
+}
+.header .search text {
+  color: #ccc;
+  font-size: 28rpx;
+}
+.header .search input {
+  color: #333;
+  font-size: 28rpx;
+  width: calc(100% - 120rpx);
+}
+.header .settled {
+  padding: 18rpx;
+  background: linear-gradient(70deg, #ff8d4d 0%, #ee2b00 100%);
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 20rpx;
+}
+.header .settled text {
+  font-size: 28rpx;
+  color: #fff;
+  margin-right: 12rpx;
+}
+.header .settled image {
+  width: 28rpx;
+  height: 28rpx;
+}
+

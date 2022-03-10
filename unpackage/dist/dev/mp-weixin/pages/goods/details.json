@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "uni-countdown": "/components/linnian-CountDown/uni-countdown"
+  }
+}

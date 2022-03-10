@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+    "show-model": "/components/showModel/showModel"
+  }
+}

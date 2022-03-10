@@ -1,0 +1,84 @@
+
+.main {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+}
+.bgImg {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+.programInfo {
+	position: absolute;
+	top: 200rpx;
+	left: 0;
+	width: 100%;
+}
+.programLogo {
+	width: 160rpx;
+	height: 160rpx;
+	border-radius: 20rpx;
+	margin: 0 auto;
+}
+.programLogo image {
+	text-align: center;
+}
+.programName {
+	font-size: 40rpx;
+	color: #808080;
+	font-weight: 600;
+	margin: 40rpx 0 20rpx;
+	text-align: center;
+}
+.programTitle {
+	font-size: 28rpx;
+	color: #333;
+	max-width: 650rpx;
+	text-align: center;
+	margin: 0 50rpx;
+}
+.operation {
+	position: absolute;
+	top: 638rpx;
+	left: 0;
+	width: 100%;
+	padding: 0 30rpx;
+}
+.operationBtn {
+	width: 690rpx;
+	height: 88rpx;
+	text-align: center;
+	line-height: 88rpx;
+	font-size: 36rpx;
+	color: #999;
+	border-radius: 54rpx;
+}
+.loginBtn {
+	color: #fff;
+	background: #01ad19;
+	margin-bottom: 40rpx;
+}
+.cancelBtn {
+	border: 2rpx solid #999999;
+	margin-bottom: 80rpx;
+}
+.radio {
+	display: flex;
+	align-items: flex-start;
+}
+.radio radio {
+	-webkit-transform: scale(.6);
+	        transform: scale(.6);
+}
+.radio .content {
+	color: #999;
+	font-size: 28rpx;
+}
+.radio .content text {
+	color: #FF4747;
+}
+

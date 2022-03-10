@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "优惠券",
+  "backgroundColor": "#F5F5F5",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

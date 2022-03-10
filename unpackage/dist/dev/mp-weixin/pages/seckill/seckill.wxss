@@ -1,0 +1,153 @@
+.seckillImg {
+  width: 100%;
+  height: 352rpx;
+}
+.headerNav {
+  width: 750rpx;
+  height: 72rpx;
+  position: relative;
+  overflow: hidden;
+  background-color: #FF4D4D;
+}
+.headerNav .scrollView {
+  width: 750rpx;
+  height: 72rpx;
+  display: flex;
+  padding-right: 72rpx;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.headerNav .scrollView .scrollViewBox {
+  display: flex;
+  align-items: center;
+}
+.headerNav .scrollView view {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.headerNav .scrollView .headerNavItem {
+  font-size: 24rpx;
+  display: inline-block;
+  background-color: #FF2D2D;
+  color: #fff;
+  max-height: 40rpx;
+  margin-right: 12rpx;
+  padding: 0 16rpx;
+  border-radius: 8rpx;
+}
+.headerNav .scrollView .headerNavItem text {
+  border-radius: 8px;
+  display: inline-block;
+}
+.headerNav .scrollView .headerNavItem:first-child {
+  margin-left: 30rpx;
+}
+.headerNav .scrollView .activeHeadItem {
+  color: #FF2D2D;
+  background-color: #fff;
+}
+.headerNav .scrollView .activeHeadItem text {
+  position: relative;
+}
+.headerNav .headerNavImg {
+  width: 60rpx;
+  height: 72rpx;
+  background: #FF4C4C;
+  box-shadow: 2rpx 0rpx 12rpx 4rpx rgba(0, 0, 0, 0.41);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.headerNav .headerNavImg image {
+  width: 28rpx;
+  height: 28rpx;
+}
+.seckillMain {
+  padding: 20rpx 30rpx;
+}
+.seckillMain .goodsMain {
+  padding: 20rpx 0;
+  width: 100%;
+  border-bottom: 2rpx solid #EBEBEB;
+}
+.seckillMain .goodsMain .goodsImg {
+  width: 240rpx;
+  height: 240rpx;
+  margin-right: 24rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.seckillMain .goodsMain .goodsContent {
+  width: 426rpx;
+}
+.seckillMain .goodsMain .goodsTitle text {
+  padding: 4rpx 8rpx;
+  border-radius: 8rpx;
+  color: #fff;
+  font-size: 20rpx;
+  margin-right: 12rpx;
+}
+.seckillMain .goodsMain .goodsTitle .seckillBtn {
+  background-color: #FF2D2D;
+}
+.seckillMain .goodsMain .goodsTitle .welfareBtn {
+  background-color: #333333;
+}
+.seckillMain .goodsMain .goodsName {
+  font-size: 28rpx;
+  color: #333;
+  max-width: 350rpx;
+  margin: 10rpx 16rpx;
+}
+.seckillMain .goodsMain .seckillStatus {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28rpx;
+}
+.seckillMain .goodsMain .seckillStatus .seckillTimer {
+  width: 200rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 20rpx;
+  margin-right: 16rpx;
+  background: #ff2d2d;
+  border-radius: 16rpx;
+}
+.seckillMain .goodsMain .seckillStatus .sellOutNum {
+  font-size: 20rpx;
+  color: #999;
+}
+.seckillMain .goodsMain .presentPrice {
+  display: flex;
+  align-items: center;
+  color: #FF2D2D;
+  margin-bottom: 10rpx;
+}
+.seckillMain .goodsMain .presentPrice .goodsPrice {
+  font-size: 20rpx;
+  color: #FF2D2D;
+  margin-right: 12rpx;
+}
+.seckillMain .goodsMain .presentPrice .goodsPrice .priceTxt {
+  font-size: 28rpx;
+}
+.seckillMain .goodsMain .presentPrice .goodsPrice .price {
+  font-size: 32rpx;
+}
+.seckillMain .goodsMain .presentPrice .reduction {
+  padding: 4rpx 8rpx;
+  font-size: 20rpx;
+  text-align: center;
+  border: 2rpx solid #ff2d2d;
+  border-radius: 30rpx;
+}
+.seckillMain .goodsMain .originalPrice {
+  color: #999;
+  font-size: 20rpx;
+}
+

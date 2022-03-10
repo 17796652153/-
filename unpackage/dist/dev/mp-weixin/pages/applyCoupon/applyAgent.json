@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "代理申请",
+  "usingComponents": {
+    "link-address": "/components/linkAddress/linkAddress"
+  }
+}

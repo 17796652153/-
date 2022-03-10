@@ -1,0 +1,357 @@
+
+page {
+	background: #FFFFFF;
+}
+
+.root {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.headerNav {
+  width: 750rpx;
+  height: 72rpx;
+  position: relative;
+  overflow: hidden;
+}
+.headerNav .scrollView {
+  width: 750rpx;
+  height: 72rpx;
+  display: flex;
+  padding-right: 72rpx;
+  white-space: nowrap;
+}
+.headerNav .scrollView view {
+  flex-shrink: 0;
+}
+.headerNav .scrollView .headerNavItem {
+  padding: 20rpx;
+  min-width: 56rpx;
+  font-size: 28rpx;
+  color: #333;
+  display: inline-block;
+}
+.headerNav .scrollView .headerNavItem:last-child {
+  padding-right: 72rpx;
+}
+.headerNav .scrollView .activeHeadItem {
+  color: #FF2D2D;
+}
+.headerNav .scrollView .activeHeadItem text {
+  position: relative;
+}
+.headerNav .scrollView .activeHeadItem text::after {
+  content: "";
+  position: absolute;
+  width: 44rpx;
+  height: 4rpx;
+  background: #ff2d2d;
+  border-radius: 2rpx;
+  display: inline-block;
+  left: 50%;
+  bottom: -8rpx;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.headerNav .headerNavImg {
+  width: 60rpx;
+  height: 72rpx;
+  background: #ffffff;
+  box-shadow: 2rpx 0rpx 12rpx 4rpx rgba(0, 0, 0, 0.41);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.headerNav .headerNavImg image {
+  width: 28rpx;
+  height: 28rpx;
+}
+.allNav {
+  width: 100%;
+  height: calc(100% - 176rpx);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: #fff;
+}
+.allNav scroll-view {
+  width: 100%;
+  height: 100%;
+  padding: 20rpx 0;
+}
+.allNav scroll-view .allNavList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.allNav scroll-view .allNavList .allNavItem {
+  flex-direction: column;
+  justify-content: center;
+  width: 20%;
+  height: 132rpx;
+}
+.allNav scroll-view .allNavList .allNavItem image {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  margin-bottom: 12rpx;
+}
+.allNav scroll-view .allNavList .allNavItem text {
+  color: #333;
+  font-size: 24rpx;
+}
+.swiperView {
+  height: calc(100vh - 176rpx);
+}
+.scroll {
+  height: 100%;
+}
+.bannerSwiper {
+  height: 352rpx;
+}
+.bannerSwiper .swiper-item {
+  width: 100%;
+  height: 352rpx;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20rpx 0;
+  position: relative;
+}
+.nav button {
+  position: absolute;
+  right: 186rpx;
+  bottom: 0;
+  width: 188rpx;
+  height: 164rpx;
+  opacity: 0;
+}
+.nav .navItem {
+  width: 25%;
+  height: 164rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.nav .navItem image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.nav .navItem text {
+  font-size: 28rpx;
+  color: #333;
+  margin-top: 16rpx;
+}
+.screen {
+  display: flex;
+  align-items: center;
+}
+.screen .screenItem {
+  flex: 1;
+  height: 68rpx;
+  text-align: center;
+  line-height: 68rpx;
+  font-size: 28rpx;
+  color: #999;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.screen .screenItem .activeScreen {
+  color: #FF2D2D;
+}
+.screen .screenItem image {
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 20rpx;
+  vertical-align: middle;
+}
+.hideScreenBox {
+  position: absolute;
+  top: 68rpx;
+  z-index: 99;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.hideScreenBox .hideScreenContent {
+  width: 750rpx;
+  height: 84rpx;
+  background: #f5f5f5;
+  color: #333;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 84rpx;
+}
+.hideScreenBox .activeHideContent {
+  background-color: #fff;
+}
+.slotBox {
+  height: 0;
+  left: -500rpx;
+}
+.showSoltScreen {
+  height: 252rpx;
+}
+.addrBox {
+  height: 0;
+  width: 750rpx;
+  left: -250rpx;
+  display: flex;
+}
+.cityAggregate {
+  height: 588rpx;
+  overflow: hidden;
+}
+.cityAggregate view {
+  padding: 28rpx 0;
+  line-height: 40rpx;
+}
+.provinceScroll {
+  flex: 2;
+  background-color: #F5F5F5;
+}
+.provinceScroll .activeProvince {
+  background-color: #fff;
+}
+.cityScroll {
+  flex: 8;
+  background-color: #fff;
+}
+.cityScroll view {
+  text-align: left;
+  padding-left: 30rpx;
+}
+.showAddrScreen {
+  height: 588rpx;
+}
+.goodsList {
+  padding: 0 30rpx;
+}
+.goodsList .goodsItem {
+  border-top: 4rpx solid #EBEBEB;
+  padding-bottom: 40rpx;
+}
+.goodsList .goodsItem .shopName {
+  font-size: 36rpx;
+  color: #333;
+  margin: 20rpx 0;
+}
+.goodsList .goodsItem .goodsMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.goodsList .goodsItem .goodsMain .goodsImg {
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  position: relative;
+  margin-right: 20rpx;
+}
+.goodsList .goodsItem .goodsMain .goodsImg text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 124rpx;
+  height: 32rpx;
+  background: #ff2d2d;
+  border-radius: 0rpx 20rpx 0rpx 0rpx;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 32rpx;
+}
+.goodsList .goodsItem .goodsMain .goodsRight {
+  width: 430rpx;
+}
+.goodsList .goodsItem .goodsMain .goodsRight .goodsRightTop {
+  display: flex;
+  justify-content: space-between;
+}
+.goodsList .goodsItem .goodsMain .goodsRight .goodsRightTop .goodsTitle {
+  width: 328rpx;
+}
+.goodsList .goodsItem .goodsMain .goodsRight .goodsRightTop .goodsTitle .content {
+  height: 76rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 28rpx;
+  color: #333;
+}
+.goodsList .goodsItem .goodsMain .goodsRight .goodsRightTop .goodsTitle .content .seckillBtn {
+  display: inline-block;
+  width: 56rpx;
+  height: 28rpx;
+  background: #ff2d2d;
+  border-radius: 8rpx;
+  text-align: center;
+  line-height: 28rpx;
+  color: #fff;
+  font-size: 20rpx;
+  margin-right: 10rpx;
+}
+.goodsList .goodsItem .goodsMain .goodsRight .goodsRightTop .praise {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.goodsList .goodsItem .goodsMain .goodsRight .goodsRightTop .praise image {
+  width: 36rpx;
+  height: 36rpx;
+}
+.goodsList .goodsItem .goodsMain .goodsRight .goodsRightTop .praise text {
+  font-size: 20rpx;
+  color: #FF2D2D;
+}
+.goodsList .goodsItem .goodsMain .goodsRight .ensure {
+  font-size: 24rpx;
+  color: #04B901;
+  margin: 14rpx 0 34rpx;
+}
+.goodsList .goodsItem .goodsMain .goodsRight .goodsNum {
+  margin-bottom: 12rpx;
+}
+.goodsList .goodsItem .goodsMain .goodsRight .goodsNum .originalPrice,
+.goodsList .goodsItem .goodsMain .goodsRight .goodsNum .goodsLimit {
+  color: #666;
+  font-size: 20rpx;
+}
+.goodsList .goodsItem .goodsMain .goodsRight .bargaining {
+  justify-content: flex-end;
+}
+.goodsList .goodsItem .goodsMain .goodsRight .goodsPrice .price {
+  font-size: 22rpx;
+  color: #333;
+}
+.goodsList .goodsItem .goodsMain .goodsRight .goodsPrice .price text {
+  font-size: 34rpx;
+  color: #FF2D2D;
+}
+.goodsList .goodsItem .goodsMain .goodsRight .goodsPrice .addCar {
+  width: 192rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  background: #2d8dff;
+  border-radius: 20rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+.goodsNull {
+  color: #999;
+  text-align: center;
+  margin: 20rpx auto;
+}
+

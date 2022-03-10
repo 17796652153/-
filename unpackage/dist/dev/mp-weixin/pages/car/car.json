@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "购物车",
+  "backgroundColor": "#F5F5F5",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "uni-number-box": "/components/uni-number-box",
+    "lu-popup-wrapper": "/components/lu-popup-wrapper/lu-popup-wrapper"
+  }
+}

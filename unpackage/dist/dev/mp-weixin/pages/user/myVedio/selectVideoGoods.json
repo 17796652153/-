@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "选择商品",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "电商",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "header-search": "/components/headerSearch/headerSearch",
+    "screen-condotions": "/components/screenConditions/screenConditions"
+  }
+}

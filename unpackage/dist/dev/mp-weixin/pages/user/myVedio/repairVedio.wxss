@@ -1,0 +1,146 @@
+page {
+  background-color: #F5F5F5;
+}
+.refundBox {
+  background-color: #fff;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.refundBox .refundType {
+  width: 750rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  background: #ffffff;
+  padding-left: 30rpx;
+  font-size: 28rpx;
+}
+.refundBox .refundType .title {
+  color: #666;
+  margin-right: 40rpx;
+}
+.refundBox .refundType .title image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+}
+.refundBox .refundType .content {
+  color: #333;
+}
+.refundBox .refundType .arrowRight {
+  width: 28rpx;
+  height: 28rpx;
+}
+.refundBox .alreadySel {
+  height: 120rpx;
+}
+.refundBox .alreadySel .title {
+  height: 80rpx;
+}
+.refundBox .alreadySel .content {
+  width: 100%;
+  padding-right: 30rpx;
+}
+.refundBox .alreadySel .content text {
+  max-width: 500rpx;
+}
+.refundBox .flexBox {
+  display: flex;
+  align-items: center;
+}
+.refundBox .refundPrice {
+  padding: 20rpx 30rpx;
+}
+.refundBox .refundPrice .content {
+  font-size: 42rpx;
+  margin-top: 20rpx;
+}
+.refundBox .refundPrice .content .selPicker {
+  width: 100%;
+  position: relative;
+}
+.refundBox .refundPrice .content .selPicker image {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.refundBox .refundReason {
+  padding: 20rpx 30rpx;
+}
+.refundBox .refundReason .content textarea {
+  min-height: 160rpx;
+  margin-top: 20rpx;
+}
+.repairLastItem {
+  padding: 40rpx 30rpx 0;
+  border-bottom: 2rpx solid #EBEBEB;
+}
+.repairItemName {
+  color: #333;
+  font-size: 32rpx;
+}
+.repairSelImg {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40rpx;
+}
+.progress {
+  width: 400rpx;
+  margin: 20rpx 0;
+}
+.selImgItem {
+  width: 350rpx;
+  height: 210rpx;
+  background-color: #EBEBEB;
+  position: relative;
+  margin-right: 40rpx;
+  margin-bottom: 10rpx;
+  border-radius: 15rpx;
+  overflow: hidden;
+}
+.selImgItem .add {
+  width: 46rpx;
+  height: 46rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+.selImgItem .bgImg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.selImgItem .del {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9;
+}
+.confirmBtn {
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 40rpx;
+  width: 650rpx;
+  height: 88rpx;
+  opacity: 1;
+  background: #FF2D2D;
+  border-radius: 54rpx;
+  font-size: 36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 88rpx;
+}
+

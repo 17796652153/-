@@ -1,0 +1,141 @@
+.merchantBox {
+  background: #ffffff;
+  border-radius: 20rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.main {
+  padding: 40rpx 30rpx;
+}
+.main .incomeHeader {
+  padding: 20rpx;
+  border-bottom: 2rpx solid #EBEBEB;
+  font-size: 36rpx;
+  color: #000;
+}
+.main .incomeHeader .withdrawalBrawse {
+  display: flex;
+  align-items: center;
+}
+.main .incomeHeader .withdrawalBrawse text {
+  color: #999;
+  font-size: 28rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.main .incomeHeader .withdrawalBrawse image {
+  width: 24rpx;
+  height: 24rpx;
+  vertical-align: middle;
+}
+.main .incomeMoney {
+  padding: 40rpx 20rpx;
+}
+.main .incomeMoney .money {
+  font-size: 28rpx;
+  color: #333;
+}
+.main .incomeMoney .money text {
+  font-size: 48rpx;
+  color: #FF0000;
+}
+.main .incomeMoney .incomeBtn {
+  width: 96rpx;
+  height: 48rpx;
+  background: linear-gradient(116deg, #ff9c55, #ff2d2d 100%);
+  border-radius: 24rpx;
+  font-size: 24rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 48rpx;
+}
+.capital .capitalHeader {
+  width: 100%;
+}
+.capital .capitalHeader .capitalTabs {
+  flex: 1;
+  height: 92rpx;
+  line-height: 92rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #999;
+  background-color: #FAFAFA;
+}
+.capital .capitalHeader .activeTabs {
+  background-color: #FFEBEB;
+  color: #FF2D2D;
+}
+.capital .capitalDetailsMain {
+  max-height: 520rpx;
+}
+.capital .capitalDetailsMain .capitalItem {
+  padding: 20rpx;
+}
+.capital .capitalDetailsMain .capitalItem .capitalItemName {
+  font-size: 28rpx;
+  color: #333;
+}
+.capital .capitalDetailsMain .capitalItem .capitalItemTime {
+  font-size: 24rpx;
+  color: #999;
+}
+.capital .capitalDetailsMain .capitalItemPrice {
+  font-size: 28rpx;
+  color: #333;
+}
+.capital .capitalDetailsMain .add {
+  color: #FF2D2D;
+}
+scroll-view::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+  -webkit-appearance: none;
+  background: transparent;
+  color: transparent;
+}
+/* 小汽车 */
+.shopcar {
+  margin-top: 20rpx;
+  opacity: 1;
+  background: #ffffff;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(0, 0, 0, 0.1);
+}
+.all {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 32rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  color: #333333;
+}
+.allgo {
+  display: flex;
+  align-items: center;
+}
+.allgo image {
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 10rpx;
+}
+.imgcar1 {
+  display: flex;
+  font-size: 26rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  justify-content: space-between;
+  align-items: center;
+  height: 128rpx;
+}
+.imgcar1 .cargo {
+  margin-right: 0;
+  text-align: center;
+  flex: 1;
+}
+.cargo image {
+  width: 52rpx;
+  height: 52rpx;
+}
+

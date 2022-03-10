@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "自提订单",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

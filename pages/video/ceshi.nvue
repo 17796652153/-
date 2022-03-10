@@ -1,0 +1,1480 @@
+<template>
+	<view @touchmove.stop.prevent="disabledScroll">
+		<swiper 
+			:style="'width:' + windowWidth + 'px;height:' + windowHeight + 'px;'"
+			:vertical="true" 
+			@change="change" 
+			:current="current" 
+			:indicator-dots="false"
+			
+		>
+			<swiper-item v-for="(list,index) in dataList" :key="index">
+				<!-- 滚动视频 -->
+				<view class="swiper-item">
+					<!--
+						1.v-if：用于控制视频在节点的渲染数
+						2.muted的默认值是 false，代表默认是禁音视频的
+						3.http-cache默认开启视频缓存
+						4.poster（封面（方案一））：这里的封面默认处理存储在阿里云的视频
+						5.page-gesture：在非全屏模式下，是否开启亮度与音量调节手势
+						6.show-loading：这里默认去掉播放转圈的标志
+						7.show-fullscreen-btn：是否显示全屏按钮
+						8.show-center-play-btn：是否显示视频中间的播放按钮
+						9.enable-progress-gesture：是否开启控制进度的手势
+					 -->
+					<video
+						v-if="Math.abs(k-index)<=1"
+						:id="list._id"
+						:loop="true"
+						:muted="list.isplay"
+						:controls="false"
+						:style="'width: '+ windowWidth +'px; height: '+ windowHeight +'px;'"
+						:http-cache="true"
+						:page-gesture="false"
+						:show-fullscreen-btn="false"
+						:show-loading="false"
+						:show-center-play-btn="false"
+						:enable-progress-gesture="false"
+						:poster="list.src+'?x-oss-process=video/snapshot,t_100,f_jpg'"
+						:src="list.src"
+						@ended="ended"
+						@click="tapVideoHover(list.state,$event)"
+					></video>
+				</view>
+				
+				<!-- 播放状态：pause 的时候就会暂停 -->
+				<view class="videoHover" @click="tapVideoHover(list.state,$event)" :style="'width: '+ windowWidth +'px; height: '+ windowHeight +'px;'">
+					<image v-if="list.state=='pause'" class="playState" src="../../static/player.png" mode=""></image>
+				</view>
+				
+				<!-- 顶部搜索 -->
+				<view class="topSearch">
+					<view class="searchContent">
+						<image src="../../static/icon_search.png" mode=""></image>
+						<input type="text" placeholder-style="color:#fff;" value="" placeholder="输入需要查询的内容" />
+					</view>
+				</view>
+				
+				<!-- tab栏 -->
+				<view class="topTabs">
+					<view class="tabsItem activeItem">关注</view>
+					<view class="tabsItem">推荐</view>
+				</view>
+				
+				<!-- 右侧信息 -->
+				<view class="userInfo">
+					<!-- 头像 -->
+					<view class="userHead">
+						<image class="headPic" src="../../static/user-head.png" mode=""></image>
+						<image class="userFollow" src="../../static/icon_add-red.png" mode=""></image>
+					</view>
+					
+					<!-- 点赞 -->
+					<view class="thumbsUp flexColumn">
+						<image v-if="true" src="../../static/icon_unFollow-video.png" mode=""></image>
+						<image v-if="false" src="../../static/icon_follow-video.png" mode=""></image>
+						<text>1.1w</text>
+					</view>
+					
+					<!-- 评论 -->
+					<view class="userComment flexColumn" @click="showCommentPopup">
+						<image src="../../static/icon_news.png" mode=""></image>
+						<text>433</text>
+					</view>
+					
+					<!-- 分享 -->
+					<view class="share flexColumn" @click="shareSharePopup">
+						<image src="../../static/icon_share.png" mode=""></image>
+						<text>75</text>
+					</view>
+				</view>
+				
+				<!-- 底部文字 -->
+				<view class="content">
+					<view class="vedioGoods" @click="showGoodsPopup">
+						<image src="../../static/icon_video-cat.png" mode=""></image>
+						<text>购物 </text>
+						<text class="line"></text>
+						<text> 乱七八糟</text>
+					</view>
+					<view class="myFollow">
+						你的关注
+					</view>
+					<view class="userName singleHide">
+						美食分享家
+					</view>
+					<view class="words multiHide">
+						四方食事，不过一碗人间烟火，一个人也要好好吃饭。 加油陌生人！
+					</view>
+				</view>
+			
+				
+			
+			</swiper-item>
+		</swiper>
+		
+		<!-- 分享 -->
+		<luPopupWrapper ref="luPopupWrapper"
+			:type="type"
+			:transition="transition"
+			:backgroundColor="backgroundColor"
+			:active="active"
+			:height="height"
+			:width="width"
+			:popupId="popupId"
+			:maskShow="maskShow"
+			:maskClick="maskClick"
+			:closeCallback="closeCallback"
+			>
+			<view class="shareBox bottmPopup" :style="isIphoneX ? 'padding-bottom:88rpx;' : 'padding-bottom:20rpx;'">
+				<view class="shareList">
+					<view class="shareItem" @click="shareFriend">
+						<image src="../../static/share-friend.png" mode=""></image>
+						<text>微信好友</text>
+						<button open-type="share" class="friend">好友</button>
+					</view>
+					<view class="shareItem" @click="shareMoments">
+						<image src="../../static/share-moments.png" mode=""></image>
+						<text>朋友圈</text>
+					</view>
+				</view>
+				<view class="close" @click="close">
+					<image class="pic" src="../../static/icon_clone-yuan.png" mode=""></image>
+				</view>
+			</view>
+		</luPopupWrapper>
+	
+		<!-- 查看商品 -->
+		<view class="">
+			<view class="mask" v-if="showGoods" @click="hideGoods"></view>
+			<view class="vedioGoodsBox bottmPopup" :animation="animationGoods">
+				<view class="goodsImg">
+					<image class="pic" src="../../static/bg.jpg" mode="aspectFill"></image>
+				</view>
+				<view class="goodsInfo">
+					<view class="goodsName baseflex" @click="jumpGoodsDetail">
+						<text class="singleHide">韩国特色烤肉蘸料蘸酱（原味、香辣、特辣）韩国特色烤肉蘸料蘸酱</text>
+						<image src="../../static/icon_arrow-right.png" mode=""></image>
+					</view>
+					<view class="goodsEnsure">
+						<view class="goodsTitle">
+							保证
+						</view>
+						<view class="goodsContent singleHide">
+							正品保障·7天无理由退货
+						</view>
+					</view>
+				</view>
+				<view class="goodsOperation" :style="isIphoneX ? 'padding-bottom:88rpx;' : 'padding-bottom:20rpx;'">
+					<view class="operationItem" @click="jumpGoodsDetail">
+						查看详情
+					</view>
+					<view class="operationItem nowBuy" @click="nowBuyGoods">
+						立即购买
+					</view>
+				</view>
+				<view class="close" @click="hideGoods">
+					<image class="pic" src="../../static/icon_clone-yuan.png" mode=""></image>
+				</view>
+			</view>
+		</view>
+	
+		<!-- 选择商品规格 -->
+		<view class="specs">
+			<view class="mask" @click="hideSpec" v-if="showSpecs"></view>
+			<scroll-view scroll-y="true" class="specsExplain" :animation="animationSpec">
+				<view class="specGoodsInfo">
+					<view class="specGoodsImg">
+						<image class="pic" src="../../static/bg.jpg" mode="aspectFill"></image>
+					</view>
+					<view class="specGoodsContent">
+						<view class="specGoodsName singleHide">
+							韩国烤肉蘸料
+						</view>
+						<view class="specGoodsPrice" v-if="!activeSpec && activeSpec!= 0">
+							￥ <text>9.9</text> 起
+						</view>
+						<view class="specGoodsPrice" v-else>
+							￥ <text>{{goodsSpec[activeSpec].price}}</text>
+						</view>
+						<view class="specGoodsSpecs multiHide">
+							{{activeSpec == 0 || activeSpec ? goodsSpec[activeSpec].specName : '请选择口味'}}
+						</view>
+					</view>
+				</view>
+				<view class="goodsSpecAll">
+					<view class="specTitle">
+						口味
+					</view>
+					<view class="selGoodsSpec">
+						<view 
+							:class="(activeSpec == 0 || activeSpec) && activeSpec === index ? 'goodsSpecItem activeSpecs' : 'goodsSpecItem'" 
+							v-for="(item,index) in goodsSpec" 
+							:key="index"
+							@click="changeSpec(index)"
+						>{{item.specName}}</view>
+					</view>
+				</view>
+				<view class="buyGoodsNum baseflex">
+					<view class="buyTitle">
+						购买数量
+					</view>
+					<view class="changeNum">
+						<view class="sub numBtn" @click="sub">-</view>
+						<input type="number" v-model="buyNum" @input="verification($event)" @blur="blurInput"/>
+						<view class="add numBtn" @click="add">+</view>
+					</view>
+				</view>
+				<view class="buyOperation" @click="buyClick">
+					立即购买
+				</view>
+				<view class="close" @click="hideSpec">
+					<image class="pic" src="../../static/icon_clone-line.png" mode=""></image>
+				</view>
+			</scroll-view>
+		</view>
+	
+		<!-- 评论 -->
+		<view class="">
+			<view class="mask" v-if="showComment" @click="hideComment"></view>
+			<scroll-view scroll-y="true" class="comment bottmPopup" :animation="animationComment" :style="isIphoneX ? 'padding-bottom:88rpx;' : 'padding-bottom:20rpx;'">
+				<view class="commentTitle" v-if="moreComment">433条评论</view>
+				<view class="commentTitle" v-else>无评论</view>
+				<view class="commentMain" v-if="moreComment">
+					<view class="commentContent">
+						<view class="commentUser">
+							<view class="commentUserHead">
+								<image class="pic" src="../../static/user-head.png" mode=""></image>
+							</view>
+							<view class="commentUserInfo">
+								<view class="commentUserName">
+									就这样吧
+								</view>
+								<view class="commentUserContent">
+									兄弟们我今天头上痒痒的好像要长摄像头了
+								</view>
+								<view class="commentTime">
+									3小时前 
+									<text> 回复</text>
+								</view>
+								<view class="commentMore">
+									展开更多 <text></text>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="commentContent">
+						<view class="commentUser">
+							<view class="commentUserHead">
+								<image class="pic" src="../../static/user-head.png" mode=""></image>
+							</view>
+							<view class="commentUserInfo">
+								<view class="commentUserName">
+									就这样吧
+								</view>
+								<view class="commentUserContent">
+									兄弟们我今天头上痒痒的好像要长摄像头了
+								</view>
+								<view class="commentTime">
+									3小时前 
+									<text> 回复</text>
+								</view>
+								<view class="reply" id="reply" :animation="animationReply">
+									<view class="replyUser">
+										<view class="replyUserHead">
+											<image class="pic" src="../../static/userHead.png" mode=""></image>
+										</view>
+										<view class="replyUserInfo">
+											<view class="replyUserName">
+												马大哈 <text>作者</text>
+											</view>
+											<view class="commentUserContent">
+												没长的赶紧去医院看看吧
+											</view>
+											<view class="commentTime">
+												3小时前 
+												<text> 回复</text>
+											</view>
+										</view>
+									</view>
+									<view class="replyUser">
+										<view class="replyUserHead">
+											<image class="pic" src="../../static/userHead.png" mode=""></image>
+										</view>
+										<view class="replyUserInfo">
+											<view class="replyUserName">
+												马尔咋哈 <image src="../../static/icon_arrow-rightGray.png" mode=""></image> 马大哈
+											</view>
+											<view class="commentUserContent">
+												没长的赶紧去医院看看吧
+											</view>
+											<view class="commentTime">
+												3小时前 
+												<text> 回复</text>
+											</view>
+										</view>
+									</view>
+								</view>
+								<view class="commentMore" v-if="showMoreReply" @click="getReply">
+									展开更多 <text></text>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="commentContent" v-for="(item,index) in 5" :key="index">
+						<view class="commentUser">
+							<view class="commentUserHead">
+								<image class="pic" src="../../static/user-head.png" mode=""></image>
+							</view>
+							<view class="commentUserInfo">
+								<view class="commentUserName">
+									就这样吧
+								</view>
+								<view class="commentUserContent">
+									兄弟们我今天头上痒痒的好像要长摄像头了
+								</view>
+								<view class="commentTime">
+									3小时前 
+									<text> 回复</text>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="commentMain nullComment" v-else>
+					暂无评论，快留下的想法吧
+				</view>
+				<view class="commentInput" :animation="animationInput" :style="isIphoneX ? 'padding-bottom:88rpx;' : 'padding-bottom:20rpx;'">
+					<input type="text" value="" placeholder="留下你精彩的评论吧" />
+				</view>
+				<view class="close" @click="hideComment">
+					<image class="pic" src="../../static/icon_clone-line.png" mode=""></image>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+</template>
+
+<script>
+	let app = getApp();
+	import userList from '../../utils/data.js'//这个是假数据
+	import luPopupWrapper from "../../components/lu-popup-wrapper/lu-popup-wrapper.vue";
+	export default {
+		components:{
+			luPopupWrapper
+		},
+		data(){
+			return {
+				isIphoneX: false, // iphoneX手机
+				type:"bottom",// left right top bottom center
+				transition:"slider",//none slider fade
+				backgroundColor:'#FFF',
+				active:false,
+				height:"auto",
+				width:"100%",
+				popupId:1,
+				maskShow:true,
+				maskClick:true,
+				
+				// goodsSpec: [], // 规格为空
+				goodsSpec: [{
+					specName: '特辣料8包',
+					price: 9.9
+				},{
+					specName: '店主推荐（原味3香辣3特辣2）共计8包',
+					price: 12.9
+				},{
+					specName: '原味料8包',
+					price: 9.9
+				},{
+					specName: '香辣料8包',
+					price: 9.9
+				},{
+					specName: '特辣料1包',
+					price: 1.29
+				},{
+					specName: '香辣料1包',
+					price: 1.29
+				},{
+					specName: '原味料1包',
+					price: 1.29
+				},], // 商品规格
+				activeSpec: null, // 选中的规格
+				
+				windowWidth: '', // 屏幕宽度
+				windowHeight: '', // 屏幕高度
+				
+				showShare: false, // 显示分享
+				animationShare: {}, // 动画 显示分享
+				
+				showGoods: false, // 显示商品
+				animationGoods: {}, // 动画 显示商品
+				
+				showSpecs: false, // 显示选择规格
+				animationSpec: {}, // 动画 选择规格
+				
+				showComment: false, // 显示评论
+				animationComment: {}, // 动画 评论
+				animationInput: {}, // 动画 评论 输入框
+				
+				showMoreReply: true, // 显示更多回复
+				animationReply: {}, // 动画 更多评论
+				repalyHeight: 0, // 回复的评论高度
+				
+				buyNum: 1, // 购买数量
+				moreComment: true, // 显示评论数
+				
+				dataList: [], // 视频数据
+				k: 0, // 当前播放的视频
+				oldVideo: "",
+				voice: "",
+				timeout: "",
+				current: 0,
+				boxStyle:{//视频，图片封面样式🌟💗
+					'height': 0,
+					'width': 0,
+				}
+			}
+		},
+		onLoad() {
+			this.isIphoneX = app.globalData.isIphoneX;
+			
+			this.get(); // 刚进入页面加载数据
+			
+			
+			// 获取屏幕宽高
+			this.windowWidth = uni.getSystemInfoSync().windowWidth;
+			this.windowHeight = uni.getSystemInfoSync().windowHeight;
+			
+			// 显示分享
+			var animateShow = uni.createAnimation({
+				duration: 0,
+				timingFunction: 'ease',
+			})
+			this.animateShow = animateShow;
+			this.animateShow.bottom(-150).opacity(0).step();
+			this.animationShare = this.animateShow.export();
+			
+			// 显示商品
+			var animateGoods = uni.createAnimation({
+				duration: 0,
+				timingFunction: 'ease',
+			})
+			this.animateGoods = animateGoods;
+			this.animateGoods.bottom(-800).opacity(0).step();
+			this.animationGoods = this.animateGoods.export();
+			
+			// 规格选择
+			var animateSpec = uni.createAnimation({
+				duration: 0,
+				timingFunction: 'ease',
+			})
+			this.animateSpec = animateSpec;
+			this.animateSpec.bottom(-1000).opacity(0).step();
+			this.animationSpec = this.animateSpec.export();
+			
+			// 显示评论
+			var animateComment = uni.createAnimation({
+				duration: 0,
+				timingFunction: 'ease',
+			})
+			this.animateComment = animateComment;
+			this.animateComment.bottom(-600).opacity(0).step();
+			this.animationComment = this.animateComment.export();
+			
+			var animateInput = uni.createAnimation({
+				duration: 0,
+				timingFunction: 'ease',
+			})
+			this.animateInput = animateInput;
+			this.animateInput.bottom(-100).opacity(0).step();
+			this.animationInput = this.animateInput.export();
+			
+			if(!this.moreComment) return
+			const query = uni.createSelectorQuery().in(this);
+			query.select('#reply').boundingClientRect(data => {
+			  // console.log("得到布局位置信息" + JSON.stringify(data));
+			  // console.log("节点离页面顶部的距离为" + data.top);
+			  this.repalyHeight = data.height
+			  var animation = uni.createAnimation({
+			  	duration: 0,
+			  	timingFunction: 'ease',
+			  })
+			  this.animation = animation
+			  this.animation.height(0).step();
+			  this.animationReply = this.animation.export();
+			}).exec();
+		},
+		watch:{
+			k(k,old_k){
+				console.log(k,'watch',old_k);
+				this.dataList[old_k].playIng = false; // 如果视频暂停，就加载封面
+				this.dataList[old_k].isplay = true;
+				this.dataList[old_k].state = 'pause';
+				
+				uni.createVideoContext(this.dataList[old_k]._id,this).play();
+				clearTimeout(this.oldVideo);
+				this.oldVideo = setTimeout(() => {
+					uni.createVideoContext(this.dataList[old_k]._id,this).seek(0);
+					uni.createVideoContext(this.dataList[old_k]._id,this).pause();
+					console.log('watch中预留第' + (old_k + 1) + '个视频：' + this.dataList[old_k]._id);
+				}, 500)
+				
+				// 2.0版本已经去掉了下面这一句，视频不用暂停，只需要把声音禁止就行
+				// uni.createVideoContext(this.dataList[old_k]._id + '' + old_k,this).stop()//如果视频暂停，那么旧视频停止，这里的this.dataList[old_k]._id + '' + old_k，后面加 old_k 是为了每一个视频的 id 值不同，这样就可以大程度的避免串音问题
+				console.log('已经暂停 --> 第' + (old_k + 1) + '个视频～')//提示
+				this.dataList[k].state = 'play'
+				uni.createVideoContext(this.dataList[k]._id,this).play()
+				clearTimeout(this.voice)
+				this.voice = setTimeout(()=>{
+					this.dataList[k].isplay = false
+				},300)
+				setTimeout(()=>{
+					this.dataList[k].playIng = true
+				},850)
+				//【2.0版本更新内容】- start
+				var p = k
+				++p
+				setTimeout(()=>{
+					uni.createVideoContext(this.dataList[p]._id,this).play()
+				},20)
+				clearTimeout(this.timeout)
+				this.timeout = setTimeout(()=>{
+					uni.createVideoContext(this.dataList[p]._id,this).seek(0)
+					uni.createVideoContext(this.dataList[p]._id,this).pause()
+					console.log('watch中预加载第' + (p + 1) + '个视频 2 号：' + this.dataList[p]._id)
+				},1800)
+			}
+		},
+		methods:{
+			
+			// 点击视频播放与暂停
+			tapVideoHover(state,event){
+				if(state == 'play' || state == 'continue'){ // 初次点击时视频默认播放
+					this.dataList[this.k].state = 'pause'
+				}else{
+					this.dataList[this.k].state = 'continue'
+				}
+				if(this.dataList[this.k].state == 'pause'){
+					uni.createVideoContext(this.dataList[this.k]._id,this).pause(); // 播放时点击暂停
+				}
+				
+				if(this.dataList[this.k].state == 'continue'){
+					uni.createVideoContext(this.dataList[this.k]._id,this).play(); // 暂停是点击播放
+				}
+			},
+			
+			// 视频播放结束
+			ended(){
+				// 1.播放当前视频结束时触发，自动切换下一个视频
+				this.current = this.k + 1;
+			},
+			
+			// 滑动切换下一个视频
+			change(event){
+				this.current = event.detail.current;
+				this.k = event.detail.current;
+				// 1.这里进行判断，如果是最后一个视频就进入 get() 方法加载视频进入列表
+				if(this.k == this.dataList.length - 1){
+					this.get()
+				}
+			},
+			
+			// 获取视频数据
+			get(){
+				// 1. 从接口调用数据获取视频
+				let msg = userList;
+				// 2. 将视频添加进视频列表
+				for(let i = 0; i < msg.length; i++){
+					this.dataList.push(msg[i])
+				}
+				// 3. 播放视频
+				setTimeout(() => {
+					this.dataList[this.k].playIng = true;
+					this.dataList[this.k].state = 'play';
+					uni.createVideoContext(this.dataList[this.k]._id,this).play()
+				}, 200)
+				
+				// start -- 预加载
+				var p = this.k;
+				++p;
+				setTimeout(() => {
+					uni.createVideoContext(this.dataList[p]._id,this).play()
+				},20)
+				clearTimeout(this.timeout)
+				this.timeout = setTimeout(() => {
+					uni.createVideoContext(this.dataList[p]._id,this).seek(0);
+					uni.createVideoContext(this.dataList[p]._id,this).pause();
+					console.log('get中预加载第' + (p + 1) + '个视频：' + this.dataList[p]._id);
+				},1500)
+			},
+			
+			show: function() {
+				uni.hideTabBar({
+					animation:false
+				})
+			    this.$refs.luPopupWrapper.show();
+			},
+			close: function() {
+				setTimeout(function(){
+					uni.showTabBar({
+						animation: false
+					})
+				},200)
+			    this.$refs.luPopupWrapper.close();
+			},
+			closeCallback:function() {
+			    console.log("关闭后回调");
+				uni.showTabBar({
+					animation: false
+				})
+			},
+			
+			disabledScroll(){
+			    return
+			},
+			
+			// 弹出分享弹窗
+			shareSharePopup(){
+				this.show()
+			},
+			
+			// 隐藏分享弹窗
+			hideShare(){
+				this.close()
+			},
+			
+			// 分享朋友圈
+			shareMoments(){
+				uni.showToast({
+					title: "点击右上角分享到朋友圈",
+					icon: 'none',
+					duration: 3000
+				})
+				
+				setTimeout(function(){
+					uni.hideToast()
+				},3000)
+			},
+		
+			// 弹出商品信息
+			showGoodsPopup(){
+				this.showGoods = true;
+				uni.hideTabBar({
+					animation:false
+				})
+				// 显示商品
+				var animateGoods = uni.createAnimation({
+					duration: 600,
+					timingFunction: 'ease',
+				})
+				this.animateGoods = animateGoods;
+				this.animateGoods.bottom(0).opacity(1).step();
+				this.animationGoods = this.animateGoods.export();
+			},
+		
+			// 隐藏商品
+			hideGoods(){
+				this.showGoods = false
+				// 显示商品
+				var animateGoods = uni.createAnimation({
+					duration: 500,
+					timingFunction: 'ease',
+				})
+				this.animateGoods = animateGoods;
+				this.animateGoods.bottom(-800).opacity(0).step();
+				this.animationGoods = this.animateGoods.export();
+				setTimeout(function(){
+					uni.showTabBar({
+						animation: false
+					})
+				},280)
+			},
+		
+			// 跳转商品详情
+			jumpGoodsDetail(){
+				this.hideGoods()
+				setTimeout(() => {
+					uni.navigateTo({
+						url: "../goods/details"
+					})
+				},300)
+			},
+		
+			// 立即购买
+			nowBuyGoods(){
+				this.showGoods = false
+				// 显示商品
+				var animateGoods = uni.createAnimation({
+					duration: 500,
+					timingFunction: 'ease',
+				})
+				this.animateGoods = animateGoods;
+				this.animateGoods.bottom(-800).opacity(0).step();
+				this.animationGoods = this.animateGoods.export();
+				
+				if(this.goodsSpec.length > 0){
+					this.showSpec()
+				}else{
+					setTimeout(function(){
+						uni.showTabBar({
+							animation: false
+						})
+						uni.navigateTo({
+							url: "../confirmOrder/confirmOrder"
+						})
+					},200)
+				}
+			},
+		
+			// 切换选中的规格
+			changeSpec(idx){
+				this.activeSpec = idx;
+			},
+			
+			// 购买商品 or 添加购物车
+			showSpec(){
+				uni.hideTabBar({
+					animation:false
+				})
+				
+				this.showSpecs = true;
+				this.buyNum = 1
+				var animateSpec = uni.createAnimation({
+					duration: 600,
+					timingFunction: 'ease',
+				})
+				this.animateSpec = animateSpec;
+				this.animateSpec.bottom(0).opacity(1).step();
+				this.animationSpec = this.animateSpec.export();
+			},
+			
+			// 隐藏规格
+			hideSpec(){
+				this.showSpecs = false;
+				var animateSpec = uni.createAnimation({
+					duration: 500,
+					timingFunction: 'ease',
+				})
+				this.animateSpec = animateSpec;
+				this.animateSpec.bottom(-1000).opacity(0).step();
+				this.animationSpec = this.animateSpec.export();
+				
+				setTimeout(function(){
+					uni.showTabBar({
+						animation: false
+					})
+				},280)
+			},
+			
+			// 减少数量
+			sub(){
+				let buyNum = parseInt(this.buyNum)
+				if(buyNum <= 1){
+					console.log('不能再少了');
+					return
+				}
+				buyNum -= 1
+				this.buyNum = buyNum
+			},
+			
+			// 增加数量
+			add(){
+				let buyNum = parseInt(this.buyNum)
+				buyNum += 1
+				this.buyNum = buyNum;
+			},
+					
+			// 数字校验
+			verification(e){
+				console.log(e.detail.value);
+				this.buyNum = e.detail.value.replace(/[^\d]/g,'')
+			},
+			blurInput(){
+				let buyNum = this.buyNum
+				buyNum = buyNum.replace(/[^\d]/g,'');
+				
+				parseInt(buyNum);
+				console.log(buyNum);
+				if(buyNum <= 1){
+					this.buyNum = 1;
+					return
+				}
+				this.buyNum = buyNum
+			},
+			
+			// 加入购物车 or 立即购买
+			buyClick(){
+				let lgn = this.goodsSpec.length;
+				if(lgn > 0){
+					console.log(this.activeSpec);
+					if(!this.activeSpec){
+						if(this.activeSpec != 0){
+							uni.showToast({
+							title: '请选择规格',
+							icon: 'none'
+						})
+						return
+						}
+						
+					}
+				}
+				
+				this.hideSpec()
+				setTimeout(function(){
+					uni.showTabBar({
+						animation: false
+					})
+					uni.navigateTo({
+						url: "../confirmOrder/confirmOrder"
+					})
+				},200)
+			},
+		
+			// 显示评论
+			showCommentPopup(){
+				this.showComment = true;
+				uni.hideTabBar({
+					animation:false
+				})
+				
+				var animateComment = uni.createAnimation({
+					duration: 600,
+					timingFunction: 'ease',
+				})
+				this.animateComment = animateComment;
+				this.animateComment.bottom(0).opacity(1).step();
+				this.animationComment = this.animateComment.export();
+				
+				var animateInput = uni.createAnimation({
+					duration: 300,
+					timingFunction: 'ease',
+				})
+				this.animateInput = animateInput;
+				this.animateInput.bottom(0).opacity(1).step();
+				this.animationInput = this.animateInput.export();
+			},
+			
+			// 隐藏评论
+			hideComment(){
+				this.showComment = false;
+				
+				var animateComment = uni.createAnimation({
+					duration: 500,
+					timingFunction: 'ease',
+				})
+				this.animateComment = animateComment;
+				this.animateComment.bottom(-600).opacity(0).step();
+				this.animationComment = this.animateComment.export();
+				
+				var animateInput = uni.createAnimation({
+					duration: 300,
+					timingFunction: 'ease',
+				})
+				this.animateInput = animateInput;
+				this.animateInput.bottom(-100).opacity(0).step();
+				this.animationInput = this.animateInput.export();
+				setTimeout(function(){
+					uni.showTabBar({
+						animation: false
+					})
+				},280)
+			},
+		
+			// 获取回复高度
+			getReply(){
+				// 调整商品详情高度
+				const query = uni.createSelectorQuery().in(this);
+				query.select('#reply').boundingClientRect(data => {
+				  console.log("得到布局位置信息" + JSON.stringify(data));
+				  console.log("节点离页面顶部的距离为" + data.top);
+				  var animation = uni.createAnimation({
+				  	duration: 300,
+				  	timingFunction: 'ease',
+				  })
+				  this.animation = animation
+				  this.animation.height(this.repalyHeight).step();
+				  this.animationReply = this.animation.export();
+				}).exec();	
+				
+				this.showMoreReply = false
+			},
+		},
+		onShareAppMessage() {
+		    // const promise = new Promise(resolve => {
+		    //   setTimeout(() => {
+		    //     resolve({
+		    //       title: '转发好友这个视频'
+		    //     })
+		    //   }, 2000)
+		    // })
+			this.close()
+		    return {
+		      title: '转发好友这个视频',
+		      // promise 
+		    }
+			
+			
+		},
+		onShareTimeline(){},
+	}
+</script>
+
+<style lang="less">
+	.videoHover{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		.playState{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 100rpx;
+			height: 100rpx;
+			opacity: 0.85;
+			transform: translateX(-50%) translateY(-50%);
+		}
+	}
+	
+	.topSearch{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		padding: 20rpx 30rpx;
+		.searchContent{
+			width: 690rpx;
+			height: 64rpx;
+			border: 2rpx solid #ffffff;
+			border-radius: 34rpx;
+			display: flex;
+			align-items: center;
+			overflow: hidden;
+			image{
+				width: 40rpx;
+				height: 40rpx;
+				margin-left: 20rpx;
+				vertical-align: middle;
+			}
+			input{
+				height: 100%;
+				font-size: 28rpx;
+				color: #fff;
+				width: 576rpx;
+				padding-left: 20rpx;
+			}
+		}
+	}
+	
+	.topTabs{
+		position: absolute;
+		top: 104rpx;
+		left: 0;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		padding: 20rpx 30rpx;
+		.tabsItem{
+			color: #fff;
+			font-size: 36rpx;
+			width: 50%;
+			height: 66rpx;
+			text-align: center;
+		}
+		.activeItem{
+			position: relative;
+			&::after{
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 48rpx;
+				height: 4rpx;
+				background: #ffffff;
+				border-radius: 2rpx;
+			}
+		}
+	}
+	
+	.userInfo{
+		position: absolute;
+		right: 10rpx;
+		bottom: 120rpx;
+		display: flex;
+		flex-direction: column;
+		z-index: 9;
+		.userHead{
+			position: relative;
+			margin-bottom: 50rpx;
+			border-radius: 50%;
+			.headPic{
+				width: 80rpx;
+				height: 80rpx;
+				border: 2rpx solid #fff;
+				border-radius: 50%;
+				overflow: hidden;
+			}
+			.userFollow{
+				position: absolute;
+				left: 50%;
+				bottom: -14rpx;
+				transform: translateX(-50%);
+				width: 28rpx;
+				height: 28rpx;
+			}
+		}
+	}
+	
+	.flexColumn{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 30rpx;
+		image{
+			width: 52rpx;
+			height: 52rpx;
+			margin-bottom: 10rpx;
+		}
+		text{
+			color: #fff;
+			font-size: 20rpx;
+		}
+	}
+	
+	.content{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		color: #fff;
+		padding: 40rpx 30rpx;
+		.vedioGoods{
+			position: relative;
+			height: 36rpx;
+			display: inline-block;
+			padding-right: 10rpx;
+			line-height: 36rpx;
+			background: rgba(255,255,255,0.10);
+			border-radius: 10rpx;
+			margin-bottom: 20rpx;
+			image{
+				width: 36rpx;
+				height: 36rpx;
+				margin-right: 8rpx;
+				// vertical-align: middle;
+			}
+			text{
+				font-size: 20rpx;
+				color: #fff;
+				vertical-align: super;
+			}
+			.line{
+				display: inline-block;
+				width: 2rpx;
+				height: 12rpx;
+				background: #e5e5e5;
+				margin: 0 8rpx;
+			}
+		}
+		.myFollow{
+			width: 124rpx;
+			height: 36rpx;
+			line-height: 36rpx;
+			text-align: center;
+			background: #ffffff;
+			border-radius: 10rpx;
+			color: #333;
+			font-size: 24rpx;
+			margin-bottom: 20rpx;
+		}
+		.userName{
+			font-size: 28rpx;
+			max-width: 300rpx;
+			margin-bottom: 20rpx;
+		}
+		.words{
+			font-size: 24rpx;
+			max-width: 580rpx;
+			max-height: 130rpx;
+			-webkit-line-clamp: 4;
+		}
+	}
+
+	.mask{
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 999;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.bottmPopup{
+		background: #ffffff;
+		border-radius: 20rpx 20rpx 0rpx 0rpx;
+		overflow: hidden;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		z-index: 9999;
+		box-sizing: initial;
+	}
+	
+	.shareBox{
+		width: calc(100% - 60rpx);
+		padding: 50rpx 30rpx 20rpx;
+		position: relative;
+		.close{
+			position: absolute;
+			right: 20rpx;
+			top: 20rpx;
+			width: 28rpx;
+			height: 28rpx;
+		}
+	}
+	
+	.shareList{
+		display: flex;
+		align-items: center;
+		width: 100%;
+		.shareItem{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-right: 60rpx;
+			position: relative;
+			image{
+				width: 80rpx;
+				height: 80rpx;
+				margin-bottom: 12rpx;
+			}
+			text{
+				color: #333;
+				font-size: 32rpx;
+			}
+			button{
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 134rpx;
+				opacity: 0;
+			}
+		}
+	}
+	
+	.vedioGoodsBox{
+		width: 100%;
+		.goodsImg{
+			height: 748rpx;
+			width: 100%;
+		}
+		.goodsInfo{
+			padding: 20rpx 30rpx 38rpx;
+			.goodsName{
+				color: #333;
+				font-size: 28rpx;
+				margin-bottom: 20rpx;
+				text{
+					display: inline-block;
+					max-width: 584rpx;
+				}
+				image{
+					width: 24rpx;
+					height: 24rpx;
+				}
+			}
+			.goodsEnsure{
+				font-size: 28rpx;
+				display: flex;
+				align-items: center;
+				.goodsTitle{
+					color: #333;
+					margin-right: 20rpx;
+				}
+				.goodsContent{
+					color: #999;
+					max-width: 500rpx;
+				}
+			}
+		}
+		.goodsOperation{
+			padding: 20rpx 30rpx;
+			border-top: 2rpx solid #E5E5E5;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.operationItem{
+				width: 330rpx;
+				height: 68rpx;
+				background: #ffc7c7;
+				border-radius: 10rpx;
+				color: #FF2D2D;
+				font-size: 28rpx;
+				text-align: center;
+				line-height: 68rpx;
+			}
+			.nowBuy{
+				color: #fff;
+				background-color: #FF2D2D;
+			}
+		}
+		.close{
+			position: absolute;
+			left: 30rpx;
+			top: 28rpx;
+			width: 28rpx;
+			height: 28rpx;
+		}
+	}
+	
+	.specsExplain{
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		max-height: calc(100% - 100rpx);
+		background: #ffffff;
+		border-radius: 20rpx 20rpx 0rpx 0rpx;
+		z-index: 9999;
+		padding: 40rpx 30rpx 20rpx;
+		box-sizing: border-box;
+		.specGoodsInfo{
+			display: flex;
+			align-items: center;
+			.specGoodsImg{
+				width: 200rpx;
+				height: 200rpx;
+				border-radius: 8rpx;
+				overflow: hidden;
+				margin-right: 20rpx;
+				flex-shrink: 0;
+			}
+			.specGoodsContent{
+				flex-shrink: 0;
+				max-width: 400rpx;
+			}
+			.specGoodsName{
+				color: #333;
+				font-size: 32rpx;
+			}
+			.specGoodsPrice{
+				color: #FF2D2D;
+				font-size: 28rpx;
+				margin: 14rpx 0;
+				text{
+					font-size: 42rpx;
+					margin: 0 4rpx;
+				}
+			}
+			.specGoodsSpecs{
+				color: #999;
+				font-size: 28rpx;
+				height: 76rpx;
+			}
+		}
+		.goodsSpecAll{
+			margin-top: 40rpx;
+			.specTitle{
+				font-size: 28rpx;
+				color: #333;
+				margin-bottom: 20rpx;
+			}
+			.selGoodsSpec{
+				width: 100%;
+				height: auto;
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				.goodsSpecItem{
+					background: #e5e5e5;
+					border-radius: 6rpx;
+					padding: 12rpx;
+					font-size: 28rpx;
+					color: #666;
+					margin-right: 20rpx;
+					margin-bottom: 20rpx;
+				}
+				.activeSpecs{
+					color: #fff;
+					background-color: #FF2D2D;
+				}
+			}
+		}
+		.buyGoodsNum{
+			margin: 50rpx 0 40rpx;
+			.changeNum{
+				display: flex;
+				align-items: center;
+			}
+			.numBtn{
+				width: 40rpx;
+				height: 40rpx;
+				background: #f2f2f2;
+				border-radius: 4rpx;
+				font-size: 32rpx;
+				font-weight: 600;
+				line-height: 40rpx;
+				text-align: center;
+			}
+			input{
+				height: 40rpx;
+				max-width: 84rpx;
+				text-align: center;
+				font-size: 28rpx;
+				color: #333;
+			}
+		}
+		.buyOperation{
+			width: 690rpx;
+			height: 72rpx;
+			background: #ff2d2d;
+			border-radius: 10rpx;
+			line-height: 72rpx;
+			text-align: center;
+			font-size: 28rpx;
+			color: #fff;
+		}
+		.close{
+			position: absolute;
+			right: 30rpx;
+			top: 20rpx;
+			width: 40rpx;
+			height: 40rpx;
+		}
+	}
+
+	.comment{
+		width: 100%;
+		max-height: 900rpx;
+		padding-top: 20rpx;
+		.commentTitle{
+			color: #333333;
+			font-size: 24rpx;
+			text-align: center;
+		}
+		.commentMain{
+			padding: 20rpx 30rpx;
+			width: calc(100% - 60rpx);
+			margin: 40rpx auto;
+			.commentContent{
+				margin-bottom: 40rpx;
+			}
+			.commentUser{
+				display: flex;
+				.commentUserHead{
+					width: 60rpx;
+					height: 60rpx;
+					margin-right: 20rpx;
+					border-radius: 50%;
+					overflow: hidden;
+				}
+				.commentUserInfo{
+					max-width: 480rpx;
+					font-size: 24rpx;
+					color: #333;
+					.commentUserName{
+						color: #666;
+					}
+					.commentUserContent{
+						max-width: 480rpx;
+						margin: 16rpx 0;
+					}
+					.commentTime{
+						color: #999;
+						margin-bottom: 16rpx;
+						text{
+							color: #666;
+							margin-left: 20rpx;
+						}
+					}
+					.commentMore{
+						color: #666;
+						text{
+							display: inline-block;
+							width: 0;
+							height: 0;
+							margin-left: 12rpx;
+							border-width: 10rpx;
+							border-color: #999999 transparent transparent transparent;
+							border-style: solid;
+							vertical-align: bottom;
+						}
+					}
+					.reply{
+						overflow: hidden;
+					}
+					.replyUser{
+						display: flex;
+						.replyUserHead{
+							width: 24rpx;
+							height: 24rpx;
+							margin-right: 10rpx;
+							border-radius: 50%;
+							overflow: hidden;
+						}
+						.replyUserName{
+							color: #666;
+							font-size: 20rpx;
+							text{
+								display: inline-block;
+								font-size: 16rpx;
+								width: 44rpx;
+								height: 20rpx;
+								line-height: 20rpx;
+								text-align: center;
+								background: #ff2d2d;
+								border-radius: 4rpx;
+								margin-left: 10rpx;
+								color: #fff;
+							}
+							image{
+								width: 16rpx;
+								height: 16rpx;
+								margin: 0 8rpx;
+								vertical-align: middle;
+							}
+						}
+					}
+				}
+				
+			}
+		}
+		.nullComment{
+			text-align: center;
+			font-size: 24rpx;
+			color: #333;
+			margin-bottom: 170rpx;
+		}
+		.commentInput{
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			border-top: 2rpx solid #E5E5E5;
+			padding: 16rpx 30rpx;
+			background-color: #fff;
+			input{
+				width: 100%;
+				height: 52rpx;
+				font-size: 28rpx;
+				color: #000;
+				padding: 0 20rpx;
+				background-color: #E5E5E5;
+				box-sizing: border-box;
+				border-radius: 26px;
+			}
+		}
+		.close{
+			position: absolute;
+			right: 30rpx;
+			top: 20rpx;
+			width: 28rpx;
+			height: 28rpx;
+		}
+	}
+</style>

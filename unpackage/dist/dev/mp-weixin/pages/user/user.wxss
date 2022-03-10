@@ -1,0 +1,234 @@
+page {
+  background-color: #f5f5f5;
+}
+.headerCard {
+  width: 750rpx;
+  height: 298rpx;
+  border-radius: 0rpx 0rpx 60rpx 60rpx;
+  background-color: #FF2D2D;
+  padding: 20rpx 30rpx;
+}
+.headerUser {
+  align-items: flex-start;
+  padding-bottom: 40rpx;
+  border-bottom: 2rpx solid rgba(255, 255, 255, 0.8);
+}
+.headerUser .userInfo {
+  display: flex;
+  align-items: center;
+}
+.headerUser .userInfo .userHead {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+.headerUser .userInfo .identity {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.headerUser .userInfo .identity .myMember {
+  height: 28rpx;
+  line-height: 24rpx;
+  background: #333333;
+  position: relative;
+  margin-right: 20rpx;
+  margin-left: 18rpx;
+  text-align: right;
+  padding-right: 8rpx;
+  border-radius: 8rpx;
+}
+.headerUser .userInfo .identity .myMember image {
+  position: absolute;
+  left: -18rpx;
+  top: 0;
+  width: 28rpx;
+  height: 28rpx;
+}
+.headerUser .userInfo .identity .myMember text {
+  font-size: 24rpx;
+  color: #E5C177;
+  margin-left: 18rpx;
+}
+.headerUser .userInfo .identity .myIdentity {
+  width: 64rpx;
+  height: 28rpx;
+  background: #333333;
+  border-radius: 8rpx;
+  text-align: center;
+  line-height: 28rpx;
+  color: #FFB82D;
+  font-size: 20rpx;
+}
+.headerUser .userInfo .gender image {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 20rpx;
+}
+.headerUser .userInfo .gender text {
+  color: #fff;
+  font-size: 28rpx;
+}
+.headerUser .headerEdit {
+  width: 48rpx;
+  height: 48rpx;
+}
+.honor {
+  justify-content: space-around;
+}
+.honor .honorItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 26rpx;
+}
+.honor .honorItem .honorName,
+.honor .honorItem .honorNum {
+  font-size: 24rpx;
+  color: #fff;
+  margin-bottom: 12rpx;
+}
+.main {
+  padding: 0 30rpx 30rpx;
+}
+.exhibition {
+  width: 690rpx;
+  height: 108rpx;
+  background: #f5f5f5;
+  border-radius: 20rpx;
+  box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(0, 0, 0, 0.1);
+  margin-top: 20rpx;
+  position: relative;
+}
+.exhibition .exhibitionBg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.exhibition .memberTxt {
+  font-size: 28rpx;
+  color: #666;
+  position: absolute;
+  left: 20rpx;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.exhibition .openBtn {
+  width: 96rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  background: linear-gradient(114deg, #ff9c55, #ff2d2d 100%);
+  border-radius: 22rpx;
+  box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(0, 0, 0, 0.1);
+  font-size: 28rpx;
+  color: #fff;
+  position: absolute;
+  right: 20rpx;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+/* 小汽车 */
+.shopcar {
+  margin-top: 20rpx;
+  opacity: 1;
+  background: #ffffff;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(0, 0, 0, 0.1);
+}
+.all {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 32rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  color: #333333;
+}
+.allgo {
+  display: flex;
+  align-items: center;
+}
+.allgo image {
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 10rpx;
+}
+.imgcar {
+  display: flex;
+  font-size: 26rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  padding-bottom: 15rpx;
+}
+.cargo {
+  text-align: center;
+  flex: 1;
+}
+.cargofirst {
+  margin-left: 30rpx;
+}
+.cargolast {
+  margin-right: 0 !important;
+}
+.cargo image {
+  width: 52rpx;
+  height: 52rpx;
+}
+.orderbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.order {
+  /* border: 1px solid #ebebeb; */
+  padding-bottom: 40rpx;
+}
+.order-top {
+  font-size: 36rpx;
+  font-family: PingFang SC, PingFang SC-Medium;
+  display: flex;
+  margin: 20rpx 30rpx 40rpx 50rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+.order1 {
+  margin-left: 20rpx;
+}
+.order1 text {
+  color: #fe6668;
+  font-size: 48rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+}
+.btnsmall {
+  width: 96rpx;
+  height: 48rpx;
+  opacity: 1;
+  background: linear-gradient(297deg, #ff3e32 0%, #fb822a);
+  border-radius: 24rpx;
+  line-height: 48rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Medium;
+  color: #fff;
+  text-align: center;
+  margin-right: 20rpx;
+  display: inline-block;
+}
+.imgcar1 {
+  display: flex;
+  font-size: 26rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  justify-content: space-between;
+  align-items: center;
+  height: 128rpx;
+}
+.imgcar1 .cargo {
+  margin-right: 0;
+}
+

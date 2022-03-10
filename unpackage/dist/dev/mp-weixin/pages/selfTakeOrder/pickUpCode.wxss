@@ -1,0 +1,77 @@
+.pickUpCode {
+  text-align: center;
+  font-size: 24rpx;
+  color: #333;
+  padding-top: 1rpx;
+  border-bottom: 4rpx dashed #FFDADA;
+}
+.pickUpCode .shop,
+.pickUpCode .timer {
+  margin: 20rpx 0;
+}
+.pickUpCode .title {
+  font-size: 36rpx;
+  margin: 20rpx 0;
+}
+.pickUpCode .code {
+  font-size: 36rpx;
+  color: #FF051F;
+}
+.pickUpCode .code text {
+  margin-right: 20rpx;
+}
+.pickUpCode .code image {
+  width: 28rpx;
+  height: 28rpx;
+}
+.pickUpCode .statusBtn {
+  width: 344rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: #fff;
+  background: #ff2d2d;
+  border-radius: 44rpx;
+  margin: 40rpx auto 20rpx;
+}
+.pickUpCode .smallTips {
+  font-size: 22rpx;
+  margin-bottom: 36rpx;
+}
+.pickUpTips {
+  padding: 40rpx 30rpx;
+}
+.pickUpTips .tipsTitle {
+  color: #333;
+  font-size: 28rpx;
+  margin-bottom: 40rpx;
+}
+.pickUpTips .tipsContent {
+  font-size: 24rpx;
+  margin-bottom: 20rpx;
+}
+.pickUpTips .tipsContent .contentTitle {
+  color: #666;
+  margin-right: 10rpx;
+}
+.pickUpTips .tipsContent .content {
+  color: #333;
+}
+.confirmBtn {
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 40rpx;
+  width: 650rpx;
+  height: 88rpx;
+  opacity: 1;
+  background: #FF2D2D;
+  border-radius: 54rpx;
+  font-size: 36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 88rpx;
+}
+

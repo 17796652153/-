@@ -1,0 +1,1 @@
+<view><view class="expressMask"><web-view webview-styles="webviewStyles" src="{{trailUrl}}"></web-view></view></view>

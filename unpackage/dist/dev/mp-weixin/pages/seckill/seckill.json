@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "限时抢",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

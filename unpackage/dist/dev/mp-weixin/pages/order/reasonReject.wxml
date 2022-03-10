@@ -1,0 +1,1 @@
+<view><view class="refundBox"><view class="refundReject"><view class="title">被拒原因</view><view class="content">{{''+remark+''}}</view></view></view><view class="tips">*对订单有疑问，请<view>联系客服<button open-type="contact">联系客服</button></view></view></view>

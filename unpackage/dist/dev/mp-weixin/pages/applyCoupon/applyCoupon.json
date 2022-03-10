@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "申请优惠券",
+  "usingComponents": {
+    "show-model": "/components/showModel/showModel"
+  }
+}

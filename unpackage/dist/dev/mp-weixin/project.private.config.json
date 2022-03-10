@@ -1,0 +1,36 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/user/user",
+                    "pathName": "pages/user/user",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/video/index",
+                    "pathName": "pages/video/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/user/myCollection/myCollection",
+                    "pathName": "pages/user/myCollection/myCollection",
+                    "query": "",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

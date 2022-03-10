@@ -1,0 +1,100 @@
+page {
+  background-color: #f5f5f5;
+}
+.headNavigation {
+  width: 750rpx;
+  height: 92rpx;
+  opacity: 1;
+  background: #FFEBEB;
+  display: flex;
+}
+.navItem {
+  width: 50%;
+  text-align: center;
+  line-height: 92rpx;
+  color: #999;
+  font-size: 32rpx;
+  position: relative;
+}
+.activeNav {
+  color: #FF2D2D;
+}
+.activeNav::after {
+  content: "";
+  width: 32rpx;
+  height: 8rpx;
+  opacity: 1;
+  background: #FF2D2D;
+  border-radius: 12rpx;
+  position: absolute;
+  left: 50%;
+  bottom: 8rpx;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.invitationList .invitationItem {
+  background-color: #fff;
+  padding: 20rpx 30rpx 20rpx 50rpx;
+}
+.invitationList .invitationItem .invitationInfo {
+  display: flex;
+  align-items: center;
+}
+.invitationList .invitationItem .invitationInfo .infoImg {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.invitationList .invitationItem .invitationInfo .infoContent .name {
+  color: #333;
+  font-size: 28rpx;
+}
+.invitationList .invitationItem .invitationInfo .infoContent .timer {
+  color: #999;
+  font-size: 24rpx;
+}
+.invitationList .invitationItem .invitationPrice {
+  color: #333;
+  font-size: 28rpx;
+}
+.invitationList .invitationItem .add {
+  color: #FF2D2D;
+}
+.invitationNews {
+  width: 750rpx;
+  height: 108rpx;
+  background: #ffffff;
+  padding: 40rpx 30rpx;
+  display: flex;
+  align-items: center;
+}
+.invitationNews .radioGroup {
+  display: flex;
+}
+.invitationNews .radioGroup label {
+  display: flex;
+  margin-left: 40rpx;
+}
+.invitationNews .radioGroup label .radio {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  margin-right: 20rpx;
+}
+.invitationNews .title {
+  font-size: 28rpx;
+  color: #333;
+}
+.ewmBtn {
+  width: 400rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  background-color: #FF2D2D;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 100rpx;
+  margin: 220rpx auto;
+}
+

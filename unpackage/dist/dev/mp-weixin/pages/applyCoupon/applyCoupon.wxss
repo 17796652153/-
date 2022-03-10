@@ -1,0 +1,74 @@
+page {
+  background-color: #f5f5f5;
+}
+.refundBox {
+  background-color: #fff;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.refundBox .refundType {
+  width: 750rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  background: #ffffff;
+  padding-left: 30rpx;
+  font-size: 28rpx;
+}
+.refundBox .refundType .title {
+  color: #666;
+  margin-right: 40rpx;
+}
+.refundBox .refundType .content {
+  color: #333;
+}
+.refundBox .flexBox {
+  display: flex;
+  align-items: center;
+}
+.refundBox .refundPrice {
+  padding: 20rpx 30rpx;
+}
+.refundBox .refundPrice .content {
+  font-size: 42rpx;
+  margin-top: 20rpx;
+}
+.refundBox .refundPrice .content .selPicker {
+  width: 100%;
+  position: relative;
+}
+.refundBox .refundPrice .content .selPicker image {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.refundBox .refundPrice .content input {
+  display: inline-block;
+  vertical-align: middle;
+}
+.refundBox .refundReason {
+  padding: 20rpx 30rpx;
+}
+.refundBox .refundReason .content textarea {
+  min-height: 160rpx;
+  margin-top: 20rpx;
+}
+.refundBtn {
+  width: 650rpx;
+  height: 88rpx;
+  background: #ff2d2d;
+  border-radius: 54rpx;
+  line-height: 88rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 40rpx;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: #fff;
+  font-size: 36rpx;
+}
+
